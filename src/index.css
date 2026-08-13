@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Palette Tokens */
+    --color-bg-primary: #F6F4EE;
+    --color-bg-surface: #ECE8DF;
+    --color-bg-card: #FAF8F3;
+    --color-text-primary: #141413;
+    --color-text-muted: #6C6862;
+    --color-text-light: #9B968E;
+    --color-accent-gold: #B89B72;
+    --color-accent-gold-dark: #9A7E56;
+    --color-accent-gold-light: rgba(184, 155, 114, 0.2);
+    --color-border-subtle: rgba(20, 20, 19, 0.08);
+    --color-border-gold: rgba(184, 155, 114, 0.3);
+
+    /* Custom Motion Easings (Emil Kowalski Framework) */
+    --ease-out-editorial: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out-editorial: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Custom Cursor override when active */
+  body.has-custom-cursor,
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D5CFC3;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B89B72;
+}
+
+/* Typography Utilities */
+.font-serif-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+/* High-Contrast Editorial Typography Classes */
+.text-hero {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6.2vw, 7.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-display-lg {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+.text-display-md {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3.8rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+.text-editorial-subhead {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 2.25rem);
+  line-height: 1.25;
+  font-weight: 300;
+}
+
+.text-meta {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem; /* 11px */
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 600;
+}
+
+.text-meta-sm {
+  font-family: var(--font-sans);
+  font-size: 0.625rem; /* 10px */
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+
+/* Editorial Grain Texture Overlay */
+.film-grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Understated Link Hover Animation */
+.link-editorial {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s var(--ease-out-editorial);
+}
+
+.link-editorial::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-editorial);
+}
+
+.link-editorial:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Antique Gold Hairline Dividers */
+.gold-hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(184, 155, 114, 0) 0%,
+    rgba(184, 155, 114, 0.4) 30%,
+    rgba(184, 155, 114, 0.4) 70%,
+    rgba(184, 155, 114, 0) 100%
+  );
+}
+
+.gold-hairline-subtle {
+  height: 1px;
+  background: rgba(184, 155, 114, 0.25);
+}
