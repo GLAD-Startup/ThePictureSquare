@@ -24,10 +24,10 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
     <figure className={`group relative overflow-hidden bg-[#ECE8DF] ${className}`} data-cursor={cursorText}>
       {/* Curtain Mask Overlay Reveal */}
       <motion.div
-        initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-        whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-        viewport={{ once: true, margin: '-10%' }}
-        transition={{ duration: 1.4, ease: [0.23, 1, 0.32, 1] }}
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.0, ease: [0.23, 1, 0.32, 1] }}
         className={`relative w-full ${aspectRatio} overflow-hidden`}
       >
         <motion.img

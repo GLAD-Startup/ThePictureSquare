@@ -16,7 +16,7 @@ interface InstagramPost {
 const INSTAGRAM_POSTS: InstagramPost[] = [
   {
     id: 'post-1',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=800&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     alt: 'The Picture Square Instagram — Bridal Portrait',
     aspect: 'aspect-[3/4]',
     likes: 'INSTAGRAM · @THEPICTURESQUAREPHOTOGRAPHY',
@@ -25,7 +25,7 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'post-2',
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=800&auto=format&fit=crop',
+    src: '/images/ceremony-vows.jpg',
     alt: 'The Picture Square Instagram — Wedding Ceremony Ritual',
     aspect: 'aspect-[4/5]',
     likes: 'INSTAGRAM · @THEPICTURESQUAREPHOTOGRAPHY',
@@ -34,7 +34,7 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'post-3',
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=800&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     alt: 'The Picture Square Instagram — Heirloom Jewelry Detail',
     aspect: 'aspect-[3/4]',
     likes: 'INSTAGRAM · @THEPICTURESQUAREPHOTOGRAPHY',
@@ -43,7 +43,7 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'post-4',
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/sunset-ghats.jpg',
     alt: 'The Picture Square Instagram — Sunset Couple Portrait',
     aspect: 'aspect-[16/9]',
     likes: 'INSTAGRAM · @THEPICTURESQUAREPHOTOGRAPHY',
@@ -52,7 +52,7 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
   },
   {
     id: 'post-5',
-    src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=85&w=1000&auto=format&fit=crop',
+    src: '/images/dance-celebration.jpg',
     alt: 'The Picture Square Instagram — Celebration & Joy',
     aspect: 'aspect-[4/3]',
     likes: 'INSTAGRAM · @THEPICTURESQUAREPHOTOGRAPHY',
@@ -94,9 +94,9 @@ export const InstagramSection: React.FC = () => {
             href="https://www.instagram.com/thepicturesquarephotography/"
             target="_blank"
             rel="noreferrer"
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-            viewport={{ once: true, margin: '-10%' }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 1.2, ease: easeOutEditorial }}
             className={`group relative ${post.span} overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 block`}
             data-cursor="INSTAGRAM"

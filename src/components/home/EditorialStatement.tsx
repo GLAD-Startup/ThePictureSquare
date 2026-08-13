@@ -79,15 +79,15 @@ export const EditorialStatement: React.FC = () => {
 
         {/* Right Column: Large High-Editorial Wedding Photograph Anchor */}
         <motion.div
-          initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-          whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-          viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 1.4, delay: 0.2, ease: easeOutEditorial }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.0, delay: 0.2, ease: easeOutEditorial }}
           className="lg:col-span-6 relative h-[52vh] sm:h-[62vh] lg:h-[72vh] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 shadow-[0_20px_50px_rgba(20,20,19,0.06)]"
           data-cursor="MANIFESTO"
         >
           <img
-            src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1400&auto=format&fit=crop"
+            src="/images/ceremony-vows.jpg"
             alt="The Picture Square Photography — Candid Emotional Wedding Moment"
             loading="lazy"
             className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.02]"

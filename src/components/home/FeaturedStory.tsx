@@ -45,7 +45,7 @@ export const FeaturedStory: React.FC = () => {
         >
           {/* Full-Bleed High-Res Cover Visual */}
           <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1800&auto=format&fit=crop"
+            src="/images/hero-wedding.jpg"
             alt="Ananya and Rohan Jaipur Wedding Story"
             loading="lazy"
             className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.02] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"

@@ -25,7 +25,7 @@ const SERVICES: ServicePanel[] = [
     description: 'Documenting sacred vows, grand rituals, and unguarded tears with high-contrast editorial restraint.',
     locationTag: 'MATHURA · AGRA · RAJASTHAN',
     deliverables: ['Full Day Dual-Team Still Coverage', 'Signature Heirloom Leather Album', 'Private High-Res Digital Gallery', 'Pre-Wedding Portrait Session'],
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     alt: 'Luxury Editorial Indian Wedding Photography',
     layout: 'right-image',
   },
@@ -37,7 +37,7 @@ const SERVICES: ServicePanel[] = [
     description: 'Cinematic visual stories created across historic ghats, royal palaces, and intimate landscapes.',
     locationTag: 'YAMUNA GHATS · TAJ HERITAGE',
     deliverables: ['2-Day Concept Location Shoot', 'Custom Fine-Art Lookbook Print', 'Styling & Heritage Direction', 'Same-Day Teaser Reel'],
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     alt: 'Pre-Wedding Visual Story Photography',
     layout: 'left-image',
   },
@@ -49,7 +49,7 @@ const SERVICES: ServicePanel[] = [
     description: 'Slow-burn 4K wedding films scored with bespoke soundscapes that capture kinetic motion and real sound.',
     locationTag: '4K CINEMA · BESPOKE AUDIO',
     deliverables: ['4K Cinema Feature Length Film', 'Cinematic Trailer & Teaser', 'Bespoke Audio Soundscape Scoring', 'Licensed Drone Aerial Reels'],
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/ceremony-vows.jpg',
     alt: 'Cinematic Wedding Film & Motion Picture',
     layout: 'right-image',
   },
@@ -61,7 +61,7 @@ const SERVICES: ServicePanel[] = [
     description: 'Our signature full-coverage suite. Handcrafted heirloom leather albums, raw stills, and aerial imagery.',
     locationTag: 'WORLDWIDE COVERAGE',
     deliverables: ['Complete Multi-Day Stills & Cinema', 'Master Heirloom Leather Album Set', 'RAW Archive Storage Hard Drive', 'Lead Photographer Personal Direction'],
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/sunset-ghats.jpg',
     alt: 'Full Coverage Heirloom Photography & Film Suite',
     layout: 'full-width',
   },
@@ -188,10 +188,10 @@ const ServicePanelItem: React.FC<ServicePanelItemProps> = ({ service, easeOut })
       >
         {/* Large Background/Foreground Photography Frame */}
         <motion.div
-          initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-          whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-          viewport={{ once: true, margin: '-10%' }}
-          transition={{ duration: 1.4, ease: easeOut }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.0, ease: easeOut }}
           className={`relative overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 shadow-[0_20px_50px_rgba(20,20,19,0.05)] ${
             service.layout === 'full-width'
               ? 'lg:col-span-12 h-[52vh] sm:h-[62vh]'

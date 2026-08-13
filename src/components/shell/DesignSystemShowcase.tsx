@@ -173,32 +173,27 @@ export const DesignSystemShowcase: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ImageReveal
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop"
-            alt="Luxury Wedding Editorial Photography"
-            category="WEDDINGS"
-            caption="The Royal Courtyard Session"
-            cursorText="VIEW"
-            aspectRatio="aspect-[4/5]"
-          />
-
-          <ImageReveal
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1000&auto=format&fit=crop"
-            alt="Pre-Wedding Cinematic Visual"
-            category="PRE-WEDDINGS"
-            caption="Golden Hour Narrative"
-            cursorText="EXPLORE"
-            aspectRatio="aspect-[4/5]"
-          />
-
-          <ImageReveal
-            src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1000&auto=format&fit=crop"
-            alt="Cinematic Wedding Film Stills"
-            category="FILMS"
-            caption="4K Motion Film Still"
-            cursorText="PLAY"
-            aspectRatio="aspect-[4/5]"
-          />
+          <div className="aspect-[4/5] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10">
+            <img
+              src="/images/hero-wedding.jpg"
+              alt="Portrait specimen"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="aspect-[4/5] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10">
+            <img
+              src="/images/jewelry-details.jpg"
+              alt="Landscape specimen"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="aspect-[4/5] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10">
+            <img
+              src="/images/ceremony-vows.jpg"
+              alt="Square specimen"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 

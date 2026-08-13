@@ -23,7 +23,7 @@ const WEDDING_GALLERY: WeddingItem[] = [
     category: 'PORTRAITS',
     location: 'ROYAL PALACE · MATHURA',
     aspect: 'aspect-[3/4]',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1400&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     span: 'lg:col-span-7',
   },
   {
@@ -33,7 +33,7 @@ const WEDDING_GALLERY: WeddingItem[] = [
     category: 'CEREMONIES',
     location: 'TAJ HERITAGE · AGRA',
     aspect: 'aspect-[4/3]',
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/ceremony-vows.jpg',
     span: 'lg:col-span-5',
   },
   {
@@ -43,7 +43,7 @@ const WEDDING_GALLERY: WeddingItem[] = [
     category: 'CANDID',
     location: 'COURTYARD · DELHI NCR',
     aspect: 'aspect-[16/8]',
-    src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=85&w=1800&auto=format&fit=crop',
+    src: '/images/dance-celebration.jpg',
     span: 'lg:col-span-12',
   },
   {
@@ -53,7 +53,7 @@ const WEDDING_GALLERY: WeddingItem[] = [
     category: 'CELEBRATIONS',
     location: 'RAMBAGH PALACE · JAIPUR',
     aspect: 'aspect-[4/5]',
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     span: 'lg:col-span-6',
   },
   {
@@ -63,7 +63,7 @@ const WEDDING_GALLERY: WeddingItem[] = [
     category: 'TRADITIONAL',
     location: 'TEMPLE COURTYARD · MATHURA',
     aspect: 'aspect-[4/5]',
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/sunset-ghats.jpg',
     span: 'lg:col-span-6',
   },
 ];
@@ -122,8 +122,8 @@ export const WeddingsPage: React.FC = () => {
         {filteredItems.map((item) => (
           <motion.div
             key={item.id}
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: easeOutEditorial }}
             className={`group relative ${item.span} flex flex-col space-y-4`}

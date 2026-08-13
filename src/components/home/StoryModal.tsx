@@ -1,65 +1,59 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Film } from 'lucide-react';
+import { X, Calendar, MapPin, Sparkles } from 'lucide-react';
 import { GoldDivider, GoldMeta } from '../ui/GoldAccent';
 
-export interface StoryData {
+export interface StoryDetail {
   id: string;
   couple: string;
   location: string;
   date: string;
+  tagline: string;
   coverImage: string;
   introText: string;
-  details: {
-    venue: string;
-    planner: string;
-    outfits: string;
-    filmTitle: string;
-  };
-  gallery: { src: string; alt: string; aspect: string }[];
+  details: { label: string; value: string }[];
+  gallery: { src: string; caption: string }[];
+  filmTitle?: string;
+  filmDuration?: string;
 }
 
-export const SAMPLE_STORY: StoryData = {
-  id: 'a-and-r-jaipur',
-  couple: 'ANANYA + ROHAN',
+export const SAMPLE_STORY: StoryDetail = {
+  id: 'jaipur-palace-story',
+  couple: 'ANANYA & ROHAN',
   location: 'JAIPUR, RAJASTHAN',
   date: 'FEBRUARY 14, 2026',
-  coverImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1600&auto=format&fit=crop',
-  introText: 'A three-day royal palace celebration framed by golden hour light, family heirlooms, and unscripted laughter across the courtyards of Jaipur.',
-  details: {
-    venue: 'THE PALACE AT RAMBAGH · JAIPUR',
-    planner: 'HERITAGE WEDDINGS INDIA',
-    outfits: 'SABYASACHI & DESIGNER ARCHIVES',
-    filmTitle: 'THE PALACE IN GOLDEN LIGHT (4K CINEMA)',
-  },
+  tagline: 'A three-day palace celebration framed by golden hour light and family heirlooms.',
+  coverImage: '/images/hero-wedding.jpg',
+  introText:
+    'Set against the pink sandstone courtyards of Rambagh Palace, Ananya and Rohan’s wedding brought together family traditions from Jaipur and Delhi in a three-day visual festival.',
+  details: [
+    { label: 'VENUE', value: 'RAMBAGH PALACE, JAIPUR' },
+    { label: 'EVENTS', value: 'MEHNDI, SANGEET, PHERAS' },
+    { label: 'ATTENDANCE', value: '450 GUESTS' },
+    { label: 'PHOTOGRAPHY', value: 'STILLS & 4K CINEMA' },
+  ],
   gallery: [
     {
-      src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1200&auto=format&fit=crop',
-      alt: 'The Sacred Vows & Pheras',
-      aspect: 'aspect-[4/3]',
+      src: '/images/ceremony-vows.jpg',
+      caption: 'Sacred pheras ritual under golden hour light.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1000&auto=format&fit=crop',
-      alt: 'Bridal Jewelry & Gold Embroidery Details',
-      aspect: 'aspect-[3/4]',
+      src: '/images/sunset-ghats.jpg',
+      caption: 'Sunset couple portraiture across palace gardens.',
     },
     {
-      src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1600&auto=format&fit=crop',
-      alt: 'Sunset Couple Portrait at Palace Lawn',
-      aspect: 'aspect-[16/9]',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=85&w=1200&auto=format&fit=crop',
-      alt: 'Dance Floor & Reception Celebration',
-      aspect: 'aspect-[4/5]',
+      src: '/images/jewelry-details.jpg',
+      caption: 'Handcrafted heirloom bridal jewelry details.',
     },
   ],
+  filmTitle: 'THE PALACE CHRONICLE (4K REEL)',
+  filmDuration: '18 MINS · BESPOKE AUDIO SCORING',
 };
 
 interface StoryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  story?: StoryData;
+  story?: StoryDetail;
 }
 
 export const StoryModal: React.FC<StoryModalProps> = ({
@@ -67,148 +61,139 @@ export const StoryModal: React.FC<StoryModalProps> = ({
   onClose,
   story = SAMPLE_STORY,
 }) => {
-  const easeOutEditorial = [0.23, 1, 0.32, 1] as const;
-
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
-          className="fixed inset-0 z-[200] bg-[#141413]/95 backdrop-blur-lg text-[#F6F4EE] overflow-y-auto"
-        >
-          {/* Top Bar */}
-          <div className="sticky top-0 z-30 flex items-center justify-between px-6 py-6 sm:px-12 bg-[#141413]/90 backdrop-blur-md border-b border-white/10">
-            <div className="flex items-center gap-4">
-              <span className="font-serif-editorial text-2xl tracking-widest text-[#F6F4EE]">
-                THE PICTURE SQUARE
-              </span>
-              <span className="hidden sm:inline text-meta text-[#B89B72]">
-                CASE STUDY — {story.couple}
-              </span>
-            </div>
+        <div className="fixed inset-0 z-[110] overflow-y-auto">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-[#141413]/85 backdrop-blur-md"
+          />
 
-            <button
-              onClick={onClose}
-              className="p-3 rounded-full border border-white/15 text-[#F6F4EE] hover:border-[#B89B72] hover:text-[#B89B72] transition-colors"
-              aria-label="Close story"
-              data-cursor="CLOSE"
-            >
-              <X size={20} />
-            </button>
-          </div>
-
-          {/* Modal Container */}
-          <div className="max-w-[1280px] mx-auto px-6 sm:px-12 py-12 space-y-24">
-            {/* 1. Hero Cover Image */}
+          {/* Modal Overlay Container */}
+          <div className="min-h-screen px-4 sm:px-8 py-12 flex items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.0, ease: easeOutEditorial }}
-              className="relative w-full h-[65vh] sm:h-[75vh] overflow-hidden rounded-sm border border-white/10"
+              initial={{ opacity: 0, y: 40, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 30, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+              className="relative w-full max-w-5xl bg-[#F6F4EE] text-[#141413] rounded-sm shadow-2xl border border-[#141413]/10 overflow-hidden z-10 my-auto"
             >
-              <img
-                src={story.coverImage}
-                alt={story.couple}
-                className="w-full h-full object-cover object-center filter brightness-[0.95]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141413] via-transparent to-transparent opacity-80" />
-
-              {/* Cover Metadata Overlay */}
-              <div className="absolute bottom-8 left-8 right-8 z-10 space-y-3">
-                <span className="text-meta text-[#B89B72]">{story.location}</span>
-                <h1 className="font-serif-editorial text-4xl sm:text-6xl lg:text-7xl font-light text-[#F6F4EE]">
-                  {story.couple}
-                </h1>
-                <p className="font-sans text-xs text-[#9B968E] tracking-widest uppercase">
-                  CELEBRATED ON {story.date}
-                </p>
-              </div>
-            </motion.div>
-
-            {/* 2. Couple Introduction Narrative */}
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <GoldMeta>THE NARRATIVE</GoldMeta>
-              <p className="font-serif-editorial text-3xl sm:text-4xl text-[#F6F4EE] font-light leading-relaxed italic">
-                "{story.introText}"
-              </p>
-            </div>
-
-            <GoldDivider subtle className="bg-white/10" />
-
-            {/* 3. Wedding Details Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-4 text-xs font-sans">
-              <div className="space-y-1">
-                <span className="text-meta text-[#B89B72]">VENUE</span>
-                <p className="font-semibold text-[#D5CFC3] tracking-wider uppercase">
-                  {story.details.venue}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-meta text-[#B89B72]">STYLING & ARCHIVES</span>
-                <p className="font-semibold text-[#D5CFC3] tracking-wider uppercase">
-                  {story.details.outfits}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-meta text-[#B89B72]">PLANNING</span>
-                <p className="font-semibold text-[#D5CFC3] tracking-wider uppercase">
-                  {story.details.planner}
-                </p>
-              </div>
-
-              <div className="space-y-1">
-                <span className="text-meta text-[#B89B72]">CINEMA RELEASE</span>
-                <p className="font-semibold text-[#D5CFC3] tracking-wider uppercase flex items-center gap-2">
-                  <Film size={14} className="text-[#B89B72]" />
-                  {story.details.filmTitle}
-                </p>
-              </div>
-            </div>
-
-            {/* 4. Editorial Image Sequence */}
-            <div className="space-y-12">
-              <div className="flex items-center justify-between">
-                <GoldMeta>EDITORIAL PHOTOGRAPHY SEQUENCE</GoldMeta>
-                <span className="font-sans text-[11px] text-[#9B968E] uppercase tracking-widest">
-                  CURATED PRINTS
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {story.gallery.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className={`overflow-hidden rounded-sm border border-white/10 ${img.aspect} ${
-                      idx === 2 ? 'md:col-span-2' : ''
-                    }`}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover filter brightness-[0.98]"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Close Button Footer */}
-            <div className="pt-12 text-center pb-8">
+              {/* Close Button */}
               <button
                 onClick={onClose}
-                className="px-8 py-3.5 rounded-full border border-[#B89B72] text-[#F6F4EE] hover:bg-[#B89B72] hover:text-[#141413] font-sans text-xs font-semibold tracking-[0.25em] uppercase transition-all duration-400"
+                className="absolute top-6 right-6 z-30 p-3 bg-[#141413]/80 hover:bg-[#141413] text-[#F6F4EE] hover:text-[#B89B72] rounded-full border border-white/10 transition-colors"
+                aria-label="Close story case study"
+                data-cursor="CLOSE"
               >
-                CLOSE STORY EXHIBITION
+                <X size={20} />
               </button>
-            </div>
+
+              {/* Cover Hero Header */}
+              <div className="relative w-full h-[50vh] sm:h-[60vh] overflow-hidden bg-[#ECE8DF]">
+                <img
+                  src={story.coverImage}
+                  alt={story.couple}
+                  className="w-full h-full object-cover filter brightness-[0.96]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141413]/90 via-[#141413]/30 to-transparent" />
+
+                {/* Overlaid Title & Metadata */}
+                <div className="absolute bottom-8 left-8 right-8 sm:bottom-10 sm:left-10 sm:right-10 text-[#F6F4EE] space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Sparkles size={14} className="text-[#B89B72]" />
+                    <GoldMeta className="text-[#B89B72]">FEATURED CASE STUDY</GoldMeta>
+                  </div>
+                  <h2 className="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl font-light text-[#F6F4EE]">
+                    {story.couple}
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-6 font-sans text-xs text-[#D5CFC3] tracking-widest uppercase">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin size={14} className="text-[#B89B72]" />
+                      {story.location}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={14} className="text-[#B89B72]" />
+                      {story.date}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Body Content */}
+              <div className="p-8 sm:p-12 space-y-12">
+                {/* Intro & Details Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <div className="lg:col-span-7 space-y-4">
+                    <h3 className="font-serif-editorial text-2xl sm:text-3xl italic font-light text-[#141413]">
+                      "{story.tagline}"
+                    </h3>
+                    <p className="font-sans text-xs sm:text-sm text-[#6C6862] leading-relaxed tracking-wide">
+                      {story.introText}
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-5 bg-[#ECE8DF]/60 p-6 rounded-sm space-y-3 font-sans border border-[#141413]/10">
+                    <span className="text-meta text-[#B89B72] text-[10px] block">
+                      WEDDING DETAILS
+                    </span>
+                    <div className="space-y-2 text-xs">
+                      {story.details.map((item, idx) => (
+                        <div key={idx} className="flex justify-between py-1 border-b border-[#141413]/10">
+                          <span className="font-semibold text-[#6C6862] uppercase tracking-wider">{item.label}</span>
+                          <span className="font-medium text-[#141413] tracking-wide">{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <GoldDivider subtle />
+
+                {/* Editorial Gallery Grid */}
+                <div className="space-y-6">
+                  <span className="text-meta text-[#B89B72] text-[10px] block">
+                    CURATED PRINT SEQUENCE
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {story.gallery.map((img, idx) => (
+                      <div key={idx} className="space-y-2">
+                        <div className="aspect-[4/5] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10">
+                          <img
+                            src={img.src}
+                            alt={img.caption}
+                            className="w-full h-full object-cover filter brightness-[0.98]"
+                          />
+                        </div>
+                        <p className="font-sans text-[11px] text-[#6C6862] tracking-wide">
+                          {img.caption}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Row */}
+                <div className="pt-6 border-t border-[#141413]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <span className="font-sans text-xs text-[#6C6862] uppercase tracking-widest">
+                    THE PICTURE SQUARE PHOTOGRAPHY STUDIO ARCHIVE
+                  </span>
+
+                  <button
+                    onClick={onClose}
+                    className="px-8 py-3.5 bg-[#141413] hover:bg-[#B89B72] text-[#F6F4EE] hover:text-[#141413] font-sans text-xs font-semibold tracking-[0.25em] uppercase transition-all duration-400 rounded-full"
+                  >
+                    CLOSE CASE STUDY →
+                  </button>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

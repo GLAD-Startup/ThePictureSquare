@@ -24,7 +24,7 @@ export const STORIES_DATA: StorySummary[] = [
     location: 'JAIPUR · RAJASTHAN',
     date: '14.02.26',
     summary: 'A three-day palace celebration framed by golden hour light and family heirlooms across Rambagh Palace.',
-    coverImage: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1600&auto=format&fit=crop',
+    coverImage: '/images/hero-wedding.jpg',
   },
   {
     slug: 'p-k',
@@ -34,7 +34,7 @@ export const STORIES_DATA: StorySummary[] = [
     location: 'AGRA & MATHURA · UTTAR PRADESH',
     date: '28.11.25',
     summary: 'A traditional celebration grounded in family heritage, sacred rituals, and candid candlelit moments.',
-    coverImage: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1600&auto=format&fit=crop',
+    coverImage: '/images/ceremony-vows.jpg',
   },
   {
     slug: 'm-a',
@@ -44,7 +44,7 @@ export const STORIES_DATA: StorySummary[] = [
     location: 'UDAIPUR · RAJASTHAN',
     date: '05.01.26',
     summary: 'An intimate multi-day destination wedding overlooking quiet waters and vintage architecture.',
-    coverImage: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1600&auto=format&fit=crop',
+    coverImage: '/images/sunset-ghats.jpg',
   },
 ];
 
@@ -78,8 +78,8 @@ export const StoriesPage: React.FC = () => {
         {STORIES_DATA.map((story) => (
           <motion.div
             key={story.slug}
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: easeOutEditorial }}
             className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-t border-[#141413]/10 pt-10"

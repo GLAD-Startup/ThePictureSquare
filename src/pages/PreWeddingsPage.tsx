@@ -23,7 +23,7 @@ const PRE_WEDDINGS: PreWeddingStory[] = [
     location: 'MATHURA · UTTAR PRADESH',
     desc: 'Golden hour reflection across historic river ghats framed by vintage boats and morning mist.',
     aspect: 'aspect-[16/9]',
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/sunset-ghats.jpg',
     span: 'lg:col-span-12',
   },
   {
@@ -33,7 +33,7 @@ const PRE_WEDDINGS: PreWeddingStory[] = [
     location: 'AMPHITHEATRE · AGRA',
     desc: 'Intimate couple portrait framed by sandstone arches and quiet shadows.',
     aspect: 'aspect-[3/4]',
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     span: 'lg:col-span-6',
   },
   {
@@ -43,7 +43,7 @@ const PRE_WEDDINGS: PreWeddingStory[] = [
     location: 'RAMBAGH · JAIPUR',
     desc: 'High-editorial lookbook session captured in golden sunlight.',
     aspect: 'aspect-[3/4]',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     span: 'lg:col-span-6',
   },
 ];
@@ -78,8 +78,8 @@ export const PreWeddingsPage: React.FC = () => {
         {PRE_WEDDINGS.map((story) => (
           <motion.div
             key={story.id}
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: easeOutEditorial }}
             className={`group relative ${story.span} flex flex-col space-y-4`}

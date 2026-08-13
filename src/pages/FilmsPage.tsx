@@ -27,7 +27,7 @@ const FILMS: FilmItem[] = [
     duration: '18 MINS · 4K CINEMA',
     audioScore: 'BESPOKE ACOUSTIC & AMBIENT SCORING',
     aspect: 'aspect-[16/9]',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     span: 'lg:col-span-12',
   },
   {
@@ -39,7 +39,7 @@ const FILMS: FilmItem[] = [
     duration: '12 MINS · 4K CINEMA',
     audioScore: 'CLASSICAL INSTRUMENTAL & NATURAL SOUND',
     aspect: 'aspect-[16/9]',
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/ceremony-vows.jpg',
     span: 'lg:col-span-6',
   },
   {
@@ -51,7 +51,7 @@ const FILMS: FilmItem[] = [
     duration: '15 MINS · 4K CINEMA',
     audioScore: 'ORCHESTRAL SOUNDSCAPE & VOCALS',
     aspect: 'aspect-[16/9]',
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1600&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     span: 'lg:col-span-6',
   },
 ];
@@ -86,8 +86,8 @@ export const FilmsPage: React.FC = () => {
         {FILMS.map((film) => (
           <motion.div
             key={film.id}
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: easeOutEditorial }}
             className={`group relative ${film.span} flex flex-col space-y-4`}

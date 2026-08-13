@@ -62,15 +62,15 @@ export const HeritageMathura: React.FC = () => {
 
           {/* Right Column: Large Full-Height Editorial Heritage Photograph */}
           <motion.div
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-            viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 1.4, ease: easeOutEditorial }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.0, ease: easeOutEditorial }}
             className="lg:col-span-6 relative h-[48vh] sm:h-[58vh] lg:h-[65vh] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 shadow-[0_20px_50px_rgba(20,20,19,0.06)]"
             data-cursor="HERITAGE"
           >
             <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1400&auto=format&fit=crop"
+              src="/images/hero-wedding.jpg"
               alt="The Picture Square Photography Heritage Archive"
               loading="lazy"
               className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.02]"
@@ -137,15 +137,15 @@ export const HeritageMathura: React.FC = () => {
 
           {/* Right Column: Large Cinematic Heritage Visual */}
           <motion.div
-            initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-            whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-            viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 1.4, ease: easeOutEditorial }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.0, ease: easeOutEditorial }}
             className="lg:col-span-6 relative h-[50vh] sm:h-[60vh] lg:h-[68vh] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 shadow-[0_20px_50px_rgba(20,20,19,0.06)]"
             data-cursor="DESTINATION"
           >
             <img
-              src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=85&w=1400&auto=format&fit=crop"
+              src="/images/mathura-heritage.jpg"
               alt="Mathura Heritage Ghats & Cinematic Architecture"
               loading="lazy"
               className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.02]"

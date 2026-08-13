@@ -22,7 +22,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'WEDDINGS',
     location: 'ROYAL PALACE · MATHURA',
     aspect: 'aspect-[3/4]',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1400&auto=format&fit=crop',
+    src: '/images/hero-wedding.jpg',
     alt: 'Luxury Indian Bride Portrait in Traditional Lehenga',
     span: 'lg:col-span-7',
   },
@@ -33,7 +33,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'WEDDINGS',
     location: 'AMPHITHEATRE · AGRA',
     aspect: 'aspect-[4/3]',
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/ceremony-vows.jpg',
     alt: 'Sacred Indian Wedding Ceremony Ritual and Sacred Flame',
     span: 'lg:col-span-5',
   },
@@ -44,7 +44,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'PRE-WEDDINGS',
     location: 'YAMUNA GHATS · MATHURA',
     aspect: 'aspect-[16/8]',
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=85&w=1800&auto=format&fit=crop',
+    src: '/images/sunset-ghats.jpg',
     alt: 'Panoramic Sunset Portrait at Mathura Ghats',
     span: 'lg:col-span-12',
   },
@@ -55,7 +55,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'PORTRAITS',
     location: 'HERITAGE SUITE · MATHURA',
     aspect: 'aspect-[4/5]',
-    src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/jewelry-details.jpg',
     alt: 'Fine-Art Bridal Jewelry and Handcrafted Embroidery Details',
     span: 'lg:col-span-6',
   },
@@ -66,7 +66,7 @@ const GALLERY_ITEMS: GalleryItem[] = [
     category: 'WEDDINGS',
     location: 'COURTYARD · DELHI NCR',
     aspect: 'aspect-[4/5]',
-    src: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=85&w=1200&auto=format&fit=crop',
+    src: '/images/dance-celebration.jpg',
     alt: 'Emotional Family Moment & Dance Floor Celebration',
     span: 'lg:col-span-6',
   },
@@ -138,10 +138,10 @@ interface GalleryCardProps {
 const GalleryCard: React.FC<GalleryCardProps> = ({ item, easeOut }) => {
   return (
     <motion.div
-      initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-      whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-      viewport={{ once: true, margin: '-10%' }}
-      transition={{ duration: 1.2, ease: easeOut }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9, ease: easeOut }}
       className={`group relative ${item.span} flex flex-col space-y-4`}
       data-cursor="VIEW STORY →"
     >

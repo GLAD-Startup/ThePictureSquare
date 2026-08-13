@@ -130,7 +130,7 @@ export const Hero: React.FC = () => {
           >
             {/* Cinematic High-Editorial Photography */}
             <img
-              src="https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=1600&auto=format&fit=crop"
+              src="/images/hero-wedding.jpg"
               alt="The Picture Square Photography — Cinematic Indian Wedding Story"
               loading="eager"
               className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.02]"

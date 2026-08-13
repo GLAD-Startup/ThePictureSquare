@@ -54,7 +54,7 @@ export const AboutPage: React.FC = () => {
           className="lg:col-span-6 relative h-[50vh] sm:h-[62vh] overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10"
         >
           <img
-            src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=85&w=1400&auto=format&fit=crop"
+            src="/images/mathura-heritage.jpg"
             alt="Mathura Heritage Studio"
             loading="lazy"
             className="w-full h-full object-cover filter brightness-[0.98]"
