@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowUp, MapPin, Mail, Phone } from 'lucide-react';
 import { InstagramIcon, YoutubeIcon, FacebookIcon } from '@/components/ui/SocialIcons';
+import { StudioLogo } from '@/components/ui/StudioLogo';
 import { SITE_CONFIG, FOOTER_PAGES_LINKS } from '@/lib/site-config';
 
 export const GlobalFooter: React.FC = () => {
@@ -18,20 +19,18 @@ export const GlobalFooter: React.FC = () => {
         {/* THREE COLUMNS GRID                                        */}
         {/* ========================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Column 1: Wordmark + Mathura Address + Phone + Email */}
+          {/* Column 1: StudioLogo + Mathura Address + Phone + Email */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="space-y-2">
+            <div className="space-y-4">
               <span className="text-meta text-accent block font-semibold">
                 STUDIO IMPRINT &amp; HEADQUARTERS
               </span>
-              <Link
+              <StudioLogo
+                variant="lockup"
+                theme="light"
+                size="lg"
                 href="/"
-                className="block group rounded-sm focus-visible:ring-2 focus-visible:ring-accent focus:outline-none"
-              >
-                <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-normal tracking-[0.14em] uppercase text-fg-inverse group-hover:text-accent transition-colors">
-                  {SITE_CONFIG.name}
-                </h2>
-              </Link>
+              />
             </div>
 
             <div className="space-y-3 font-sans text-[13px] text-fg-inverse/70 tracking-wider uppercase">

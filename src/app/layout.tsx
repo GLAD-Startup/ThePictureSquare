@@ -53,6 +53,15 @@ export const metadata: Metadata = {
       "Editorial wedding photography and 4K cinema studio in Mathura, Uttar Pradesh.",
     images: ["/images/hero-wedding.jpg"],
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 /* ----------------------------------------------------------------
@@ -69,6 +78,7 @@ export default function RootLayout({
     name: SITE_CONFIG.name,
     legalName: SITE_CONFIG.legalName,
     image: "https://thepicturesquare.com/images/hero-wedding.jpg",
+    logo: "https://thepicturesquare.com/images/logo.png",
     url: "https://thepicturesquare.com",
     telephone: SITE_CONFIG.phoneE164,
     email: SITE_CONFIG.contact.email,

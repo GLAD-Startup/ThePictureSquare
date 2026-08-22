@@ -7,6 +7,7 @@ import { Menu, Search } from 'lucide-react';
 import { InstagramIcon, YoutubeIcon, FacebookIcon } from '@/components/ui/SocialIcons';
 import { MobileMenu } from './MobileMenu';
 import { SearchOverlayModal } from '@/components/search/SearchOverlayModal';
+import { StudioLogo } from '@/components/ui/StudioLogo';
 import { SITE_CONFIG, HEADER_NAV_LINKS } from '@/lib/site-config';
 
 export const Navbar: React.FC = () => {
@@ -80,19 +81,15 @@ export const Navbar: React.FC = () => {
                 </button>
               </div>
 
-              {/* Centred Wordmark */}
+              {/* Centred Brand Lockup */}
               <div className="col-span-6 flex justify-center text-center">
-                <Link
+                <StudioLogo
+                  variant="lockup"
+                  theme={isOverHero ? 'light' : 'dark'}
+                  size="md"
                   href="/"
-                  className={`font-display text-[1.1rem] tracking-[0.30em] uppercase transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none select-none ${
-                    isOverHero
-                      ? 'text-fg-inverse hover:text-accent'
-                      : 'text-fg hover:text-accent-text'
-                  }`}
-                  data-cursor="HOME"
-                >
-                  {SITE_CONFIG.wordmark}
-                </Link>
+                  priority
+                />
               </div>
 
               {/* Far Right: Social Icons */}
@@ -191,18 +188,14 @@ export const Navbar: React.FC = () => {
           {/* MOBILE HEADER (< 1024px): Wordmark left, Search + Menu right */}
           {/* ========================================================= */}
           <div className="flex lg:hidden items-center justify-between">
-            {/* Wordmark Left */}
-            <Link
+            {/* Mobile Brand Logo Left */}
+            <StudioLogo
+              variant="lockup"
+              theme={isOverHero ? 'light' : 'dark'}
+              size="sm"
               href="/"
-              className={`font-display text-lg tracking-[0.22em] uppercase transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none select-none ${
-                isOverHero
-                  ? 'text-fg-inverse hover:text-accent'
-                  : 'text-fg hover:text-accent-text'
-              }`}
-              data-cursor="HOME"
-            >
-              {SITE_CONFIG.wordmark}
-            </Link>
+              priority
+            />
 
             {/* Mobile Actions: Search Icon + Hamburger */}
             <div className="flex items-center gap-2">

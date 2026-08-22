@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MapPin, Calendar } from 'lucide-react';
 import { InstagramIcon } from '@/components/ui/SocialIcons';
+import { StudioLogo } from '@/components/ui/StudioLogo';
 import { GoldDivider } from '../ui/GoldAccent';
 import { SITE_CONFIG, NavItem } from '@/lib/site-config';
 
@@ -101,18 +102,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
         >
           {/* Header Row */}
           <div className="flex items-center justify-between">
-            <Link
-              href="/"
-              onClick={onClose}
-              className="flex flex-col rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none"
-            >
-              <span className="font-display text-xl sm:text-2xl tracking-[0.20em] uppercase text-fg">
-                {SITE_CONFIG.wordmark}
-              </span>
-              <span className="text-[11px] font-sans font-semibold tracking-[0.22em] text-accent-text uppercase mt-0.5">
-                {SITE_CONFIG.cityTag} · UTTAR PRADESH
-              </span>
-            </Link>
+            <div onClick={onClose}>
+              <StudioLogo
+                variant="lockup"
+                theme="dark"
+                size="md"
+                href="/"
+              />
+            </div>
 
             <button
               onClick={onClose}

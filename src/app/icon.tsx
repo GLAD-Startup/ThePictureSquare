@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og';
+import fs from 'fs';
+import path from 'path';
 
 export const runtime = 'nodejs';
 export const size = {
@@ -8,6 +10,16 @@ export const size = {
 export const contentType = 'image/png';
 
 export default function Icon() {
+  const iconPath = path.join(process.cwd(), 'public', 'images', 'logo-emblem-square.png');
+  let base64Image = '';
+
+  try {
+    const fileBuffer = fs.readFileSync(iconPath);
+    base64Image = `data:image/png;base64,${fileBuffer.toString('base64')}`;
+  } catch {
+    // Fallback if file read fails during edge compilation
+  }
+
   return new ImageResponse(
     (
       <div
@@ -19,20 +31,27 @@ export default function Icon() {
           justifyContent: 'center',
           backgroundColor: '#F6F4EE',
           borderRadius: '4px',
-          border: '1.5px solid #141413',
         }}
       >
-        <span
-          style={{
-            fontSize: '15px',
-            fontFamily: 'serif',
-            fontWeight: 700,
-            color: '#84683D',
-            letterSpacing: '-0.05em',
-          }}
-        >
-          TPS
-        </span>
+        {base64Image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={base64Image}
+            alt="The Picture Square Logo Mark"
+            width={26}
+            height={26}
+            style={{ objectFit: 'contain' }}
+          />
+        ) : (
+          <div
+            style={{
+              width: '20px',
+              height: '24px',
+              backgroundColor: '#84683D',
+              borderRadius: '2px',
+            }}
+          />
+        )}
       </div>
     ),
     {
