@@ -1,0 +1,362 @@
+[
+  {
+    "id": "img-01",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Bride standing in pink sandstone palace corridor at golden hour, Jaipur",
+    "category": "PORTRAITS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-02",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1600,
+    "height": 2400,
+    "alt": "Sacred fire phere rituals with priest chanting Sanskrit shlokas, Agra",
+    "category": "CEREMONIES",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-03",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Groom lifted into the air during high-energy sangeet folk dance, Delhi NCR",
+    "category": "CELEBRATIONS",
+    "location": "New Delhi, NCR"
+  },
+  {
+    "id": "img-04",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Antique Polki diamond choker and emerald mathapatti laid on raw silk, Mathura",
+    "category": "DETAILS",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-05",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Morning boat gliding past ancient river ghats with dawn mist, Vishram Ghat",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-06",
+    "src": "/images/mathura-heritage.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Warm ambient candlelight reflections across carved sandstone temple arcades, Braj",
+    "category": "DETAILS",
+    "location": "Vrindavan, Uttar Pradesh"
+  },
+  {
+    "id": "img-07",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Bride's mother adjusting her crimson chunni with tears before the vidaai, Mathura",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-08",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Quiet royal couple portrait in marble jharokha overlooking palace gardens, Udaipur",
+    "category": "PORTRAITS",
+    "location": "Udaipur, Rajasthan"
+  },
+  {
+    "id": "img-09",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Unscripted laughter during the dholak rhythm and sangeet performances, Jodhpur",
+    "category": "CELEBRATIONS",
+    "location": "Jodhpur, Rajasthan"
+  },
+  {
+    "id": "img-10",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1600,
+    "height": 1068,
+    "alt": "Hand-applied bridal henna motifs and heirloom gold bangles close-up, Jaipur",
+    "category": "DETAILS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-11",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Sunlight piercing through historic stone arches during sunset pre-wedding session, Agra",
+    "category": "PORTRAITS",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-12",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Varmala garland exchange under suspended jasmine floral mandap at twilight, Mathura",
+    "category": "CEREMONIES",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-13",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Groom adjusting his handcrafted raw silk turban in vintage mirror reflection, Jaipur",
+    "category": "PORTRAITS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-14",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Rose petal shower falling over the couple amidst enthusiastic baraat celebration, Agra",
+    "category": "CELEBRATIONS",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-15",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Custom platinum and gold wedding bands placed on antique brass dish, Vrindavan",
+    "category": "DETAILS",
+    "location": "Vrindavan, Uttar Pradesh"
+  },
+  {
+    "id": "img-16",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Quiet shared smile as the sun dips below the horizon along river ghat steps, Mathura",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-17",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Sacred sindoor application moment with family members looking on in reverence, Jaipur",
+    "category": "CEREMONIES",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-18",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Bride walking down the palace steps with bridesmaids holding floral canopy, Udaipur",
+    "category": "PORTRAITS",
+    "location": "Udaipur, Rajasthan"
+  },
+  {
+    "id": "img-19",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Brothers cheering during the emotional vidaai farewell embrace, Mathura",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-20",
+    "src": "/images/mathura-heritage.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Temple bells chiming as evening diyas are lit around the temple perimeter, Vrindavan",
+    "category": "DETAILS",
+    "location": "Vrindavan, Uttar Pradesh"
+  },
+  {
+    "id": "img-21",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Silhouette of bride looking out across the Yamuna river at sunrise, Mathura",
+    "category": "PORTRAITS",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-22",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Father handing his daughter's hand to the groom during sacred Kanyadaan blessing, Agra",
+    "category": "CEREMONIES",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-23",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Midnight confetti and sparkler celebration across the courtyard dance floor, Delhi NCR",
+    "category": "CELEBRATIONS",
+    "location": "New Delhi, NCR"
+  },
+  {
+    "id": "img-24",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Heavy zardozi embroidery and gold kaliras catching early morning window light, Jaipur",
+    "category": "DETAILS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-25",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Candid laugh between newlyweds right after the seven vows ceremony, Jodhpur",
+    "category": "CANDID",
+    "location": "Jodhpur, Rajasthan"
+  },
+  {
+    "id": "img-26",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Migratory birds flying over the calm waters of the Yamuna during morning portrait, Mathura",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-27",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Groom placing holy mangalsutra around bride's neck with folded hands blessing, Agra",
+    "category": "CEREMONIES",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-28",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Fine-art bridal portrait in vintage royal library alcove, Jaipur",
+    "category": "PORTRAITS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-29",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Grandmother clapping hands and smiling during traditional dholak haldi songs, Mathura",
+    "category": "CELEBRATIONS",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-30",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1600,
+    "height": 1068,
+    "alt": "Raw silk sherwani cufflinks and antique pocket watch on marble console, Udaipur",
+    "category": "DETAILS",
+    "location": "Udaipur, Rajasthan"
+  },
+  {
+    "id": "img-31",
+    "src": "/images/mathura-heritage.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Historic stone arcade illuminated by oil lamps before the evening banquet, Agra",
+    "category": "DETAILS",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-32",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Holy smoke rising from the mandap fire under star-filled winter sky, Mathura",
+    "category": "CEREMONIES",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-33",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Bride and groom sharing an unguarded glance before entering reception hall, Delhi NCR",
+    "category": "CANDID",
+    "location": "New Delhi, NCR"
+  },
+  {
+    "id": "img-34",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Golden water ripples and couple silhouette along the stone steps, Mathura",
+    "category": "PORTRAITS",
+    "location": "Mathura, Uttar Pradesh"
+  },
+  {
+    "id": "img-35",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Joyful yellow marigold petal shower during afternoon haldi ceremony, Jodhpur",
+    "category": "CELEBRATIONS",
+    "location": "Jodhpur, Rajasthan"
+  },
+  {
+    "id": "img-36",
+    "src": "/images/jewelry-details.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Handcrafted silk juttis with intricate tilla embroidery on antique carpet, Jaipur",
+    "category": "DETAILS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-37",
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Saptapadi sacred seven steps ritual around the holy Agni flame, Agra",
+    "category": "CEREMONIES",
+    "location": "Agra, Uttar Pradesh"
+  },
+  {
+    "id": "img-38",
+    "src": "/images/hero-wedding.jpg",
+    "width": 1200,
+    "height": 1500,
+    "alt": "Groom's regal portrait in antique palace archway at dusk, Udaipur",
+    "category": "PORTRAITS",
+    "location": "Udaipur, Rajasthan"
+  },
+  {
+    "id": "img-39",
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Folk musicians playing shenai and dhol at palace gates to welcome the baraat, Jaipur",
+    "category": "CELEBRATIONS",
+    "location": "Jaipur, Rajasthan"
+  },
+  {
+    "id": "img-40",
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "Dusk sky reflected in peaceful river waters with temple silhouettes in distance, Mathura",
+    "category": "CANDID",
+    "location": "Mathura, Uttar Pradesh"
+  }
+]

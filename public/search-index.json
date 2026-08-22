@@ -1,0 +1,210 @@
+[
+  {
+    "slug": "ananya-rohan",
+    "type": "story",
+    "title": "A Royal Winter Union at Rambagh Palace",
+    "couple": "Ananya & Rohan",
+    "location": "Jaipur, Rajasthan",
+    "excerpt": "A three-day royal wedding celebration in the pink city, captured across amber courtyards, marble pavilions, and twilight candlelit gardens.",
+    "tags": ["Destination", "Palace", "Jaipur", "Rajasthan", "Royal", "4K Cinema"],
+    "cover": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Ananya & Rohan Royal Wedding Cover"
+    },
+    "targetUrl": "/stories/ananya-rohan"
+  },
+  {
+    "slug": "priya-karan",
+    "type": "story",
+    "title": "Sacred Pheras on the Yamuna Ghats",
+    "couple": "Priya & Karan",
+    "location": "Mathura & Agra",
+    "excerpt": "An intimate, spiritual wedding rooted in ancient Braj traditions, with morning rituals along the holy Yamuna and an evening celebration near the Taj.",
+    "tags": ["Mathura", "Braj", "Yamuna Ghats", "Agra", "Traditional", "Spiritual"],
+    "cover": {
+      "src": "/images/ceremony-vows.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Priya & Karan Sacred Pheras Cover"
+    },
+    "targetUrl": "/stories/priya-karan"
+  },
+  {
+    "slug": "meera-aditya",
+    "type": "story",
+    "title": "Lakeside Elegance at Jagmandir Island Palace",
+    "couple": "Meera & Aditya",
+    "location": "Udaipur, Rajasthan",
+    "excerpt": "An ethereal island wedding surrounded by the still waters of Lake Pichola, featuring bespoke floral installations and traditional Mewari hospitality.",
+    "tags": ["Destination", "Udaipur", "Lakeside", "Island Palace", "Rajasthan", "Floral Design"],
+    "cover": {
+      "src": "/images/sunset-ghats.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Meera & Aditya Udaipur Wedding Cover"
+    },
+    "targetUrl": "/stories/meera-aditya"
+  },
+  {
+    "slug": "kavya-dev",
+    "type": "story",
+    "title": "Sunlit Fort Vows in the Blue City",
+    "couple": "Kavya & Dev",
+    "location": "Jodhpur, Rajasthan",
+    "excerpt": "High-octane sangeet performances and sunlit courtyard vows set against the towering ramparts of Mehrangarh Fort.",
+    "tags": ["Jodhpur", "Fort Wedding", "Rajasthan", "Sangeet", "Destination"],
+    "cover": {
+      "src": "/images/dance-celebration.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Kavya & Dev Jodhpur Wedding Cover"
+    },
+    "targetUrl": "/stories/kavya-dev"
+  },
+  {
+    "slug": "neha-kabir",
+    "type": "story",
+    "title": "Contemporary Heritage at Taj Falaknuma",
+    "couple": "Neha & Kabir",
+    "location": "Hyderabad, Telangana",
+    "excerpt": "Opulent Nizami architecture, 101-seat dining table celebrations, and quiet moments in shaded marble arcades.",
+    "tags": ["Hyderabad", "Palace", "Heritage", "Fine Art", "Architecture"],
+    "cover": {
+      "src": "/images/jewelry-details.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Neha & Kabir Falaknuma Wedding Cover"
+    },
+    "targetUrl": "/stories/neha-kabir"
+  },
+  {
+    "slug": "ishaan-tanya",
+    "type": "story",
+    "title": "Sandstone Whispers at Suryagarh",
+    "couple": "Ishaan & Tanya",
+    "location": "Jaisalmer, Rajasthan",
+    "excerpt": "A desert fortress celebration surrounded by golden dunes, folk musicians, and starlit open-air banquets.",
+    "tags": ["Jaisalmer", "Desert", "Fortress", "Rajasthan", "Folk Music"],
+    "cover": {
+      "src": "/images/mathura-heritage.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Ishaan & Tanya Jaisalmer Wedding Cover"
+    },
+    "targetUrl": "/stories/ishaan-tanya"
+  },
+  {
+    "slug": "riya-samir",
+    "type": "story",
+    "title": "Vedic Rituals in the Sacred Groves of Vrindavan",
+    "couple": "Riya & Samir",
+    "location": "Vrindavan, Uttar Pradesh",
+    "excerpt": "Temple bells, marigold showers, and deep family devotion in an ancient temple courtyard in the heart of Braj.",
+    "tags": ["Vrindavan", "Braj", "Temple Wedding", "Vedic", "Intimate"],
+    "cover": {
+      "src": "/images/ceremony-vows.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Riya & Samir Vrindavan Wedding Cover"
+    },
+    "targetUrl": "/stories/riya-samir"
+  },
+  {
+    "slug": "yamuna-ghats-silence",
+    "type": "pre-wedding",
+    "title": "Yamuna Ghats Silence Pre-Wedding Lookbook",
+    "couple": "Priya & Karan",
+    "location": "Mathura & Vrindavan, Uttar Pradesh",
+    "excerpt": "A quiet dawn editorial session captured along the ancient stone ghats of Mathura and Vrindavan in soft river mist.",
+    "tags": ["Mathura", "Vrindavan", "Yamuna Ghats", "Dawn Session", "Braj", "Editorial"],
+    "cover": {
+      "src": "/images/sunset-ghats.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Priya & Karan Dawn Pre-Wedding Cover"
+    },
+    "targetUrl": "/pre-weddings/yamuna-ghats-silence"
+  },
+  {
+    "slug": "heritage-courtyards-agra",
+    "type": "pre-wedding",
+    "title": "Heritage Courtyards Agra Pre-Wedding Lookbook",
+    "couple": "Ananya & Rohan",
+    "location": "Agra, Uttar Pradesh",
+    "excerpt": "Sandstone corridors, warm morning light, and quiet intimacy across Mughal-era architectural arches.",
+    "tags": ["Agra", "Architecture", "Heritage", "Sandstone", "Editorial"],
+    "cover": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Ananya & Rohan Agra Pre-Wedding Cover"
+    },
+    "targetUrl": "/pre-weddings/heritage-courtyards-agra"
+  },
+  {
+    "slug": "desert-dunes-jodhpur",
+    "type": "pre-wedding",
+    "title": "Desert Dunes Jodhpur Pre-Wedding Lookbook",
+    "couple": "Kavya & Dev",
+    "location": "Jodhpur & Thar Desert, Rajasthan",
+    "excerpt": "Golden sand dunes, windblown silks, and twilight silhouettes in the vast Thar desert landscape.",
+    "tags": ["Jodhpur", "Desert", "Rajasthan", "Golden Hour", "Editorial"],
+    "cover": {
+      "src": "/images/dance-celebration.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Kavya & Dev Desert Pre-Wedding Cover"
+    },
+    "targetUrl": "/pre-weddings/desert-dunes-jodhpur"
+  },
+  {
+    "slug": "lake-pichola-dawn",
+    "type": "pre-wedding",
+    "title": "Lake Pichola Dawn Pre-Wedding Lookbook",
+    "couple": "Meera & Aditya",
+    "location": "Udaipur, Rajasthan",
+    "excerpt": "Boat rides on calm waters, white marble ghats, and royal palace backdrops in the city of lakes.",
+    "tags": ["Udaipur", "Lake Pichola", "Lakeside", "Dawn Session", "Rajasthan"],
+    "cover": {
+      "src": "/images/jewelry-details.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Meera & Aditya Lake Pichola Pre-Wedding Cover"
+    },
+    "targetUrl": "/pre-weddings/lake-pichola-dawn"
+  },
+  {
+    "slug": "rambagh-palace-monograph",
+    "type": "photobook",
+    "title": "Ananya & Rohan Heirloom Monograph",
+    "couple": "Ananya & Rohan",
+    "location": "14 × 11 in · Italian Leather",
+    "excerpt": "A masterwork monograph bound in vegetable-tanned Italian leather with custom gold foil monogram debossing.",
+    "tags": ["photobook", "heirloom", "leather", "cotton rag", "monograph"],
+    "cover": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1200,
+      "height": 1500,
+      "alt": "Rambagh Palace Monograph Leather Cover"
+    },
+    "targetUrl": "/photobooks/rambagh-palace-monograph"
+  },
+  {
+    "slug": "film-trailer-ananya",
+    "type": "film",
+    "title": "Ananya & Rohan — TRAILER",
+    "couple": "Ananya & Rohan",
+    "location": "Jaipur, Rajasthan",
+    "excerpt": "4K trailer motion picture recording (4:12) in Jaipur, Rajasthan.",
+    "tags": ["trailer", "4k film", "cinematography", "showreel"],
+    "cover": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "Ananya & Rohan Palace Trailer Poster"
+    },
+    "targetUrl": "/films#trailers"
+  }
+]

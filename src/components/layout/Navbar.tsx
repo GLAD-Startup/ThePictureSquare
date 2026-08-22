@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu } from 'lucide-react';
-import { MobileMenu } from './MobileMenu';
+'use client';
 
-export const NAV_LINKS = [
-  { name: 'WEDDINGS', path: '/weddings' },
-  { name: 'PRE-WEDDINGS', path: '/pre-weddings' },
-  { name: 'FILMS', path: '/films' },
-  { name: 'STORIES', path: '/stories' },
-  { name: 'ABOUT', path: '/about' },
-  { name: 'CONTACT', path: '/contact' },
-];
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Menu, Search } from 'lucide-react';
+import { InstagramIcon, YoutubeIcon, FacebookIcon } from '@/components/ui/SocialIcons';
+import { MobileMenu } from './MobileMenu';
+import { SearchOverlayModal } from '@/components/search/SearchOverlayModal';
+import { SITE_CONFIG, HEADER_NAV_LINKS } from '@/lib/site-config';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 60) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -27,68 +25,214 @@ export const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isOverHero = pathname === '/' && !isScrolled;
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-          isScrolled
-            ? 'py-4 bg-[#F6F4EE]/90 backdrop-blur-md border-b border-[#141413]/5 shadow-[0_4px_30px_rgba(0,0,0,0.02)]'
-            : 'py-7 bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+          isOverHero
+            ? 'bg-gradient-to-b from-black/75 via-black/30 to-transparent py-4 sm:py-5 border-b border-transparent'
+            : 'bg-bg/95 backdrop-blur-md border-b border-rule shadow-[0_4px_30px_rgba(20,20,19,0.04)] py-3 sm:py-3.5'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-between">
-          {/* LEFT: Branding */}
-          <Link
-            to="/"
-            className="flex flex-col group focus:outline-none"
-            data-cursor="HOME"
-          >
-            <span className="font-serif-editorial text-xl sm:text-2xl lg:text-[1.65rem] tracking-[0.14em] font-normal text-[#141413] transition-colors group-hover:text-[#B89B72]">
-              THE PICTURE SQUARE
-            </span>
-            <span className="text-[9px] font-sans font-semibold tracking-[0.28em] text-[#B89B72] uppercase -mt-0.5">
-              MATHURA, IN
-            </span>
-          </Link>
-
-          {/* RIGHT: Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-9" aria-label="Desktop Global Navigation">
-            {NAV_LINKS.map((link) => {
-              const isActive = location.pathname === link.path;
-              return (
-                <NavLink
-                  key={link.name}
-                  to={link.path}
-                  className={`relative text-[11px] font-sans font-semibold tracking-[0.22em] py-1 transition-colors group ${
-                    isActive ? 'text-[#B89B72]' : 'text-[#141413]/80 hover:text-[#141413]'
+        <div className="w-full max-w-[1560px] mx-auto px-5 sm:px-10 lg:px-[72px]">
+          {/* ========================================================= */}
+          {/* DESKTOP HEADER (>= 1024px) — TWO ROWS                     */}
+          {/* ========================================================= */}
+          <div className="hidden lg:flex flex-col gap-3.5">
+            {/* ROW 1: Search (Left) | Centred Wordmark | Socials (Right) */}
+            <div className="grid grid-cols-12 items-center">
+              {/* Far Left: Search Icon Trigger */}
+              <div className="col-span-3 flex items-center justify-start">
+                <button
+                  type="button"
+                  onClick={() => setIsSearchOpen(true)}
+                  className={`p-1.5 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none flex items-center gap-2 group cursor-pointer ${
+                    isOverHero
+                      ? 'text-fg-inverse/80 hover:text-fg-inverse'
+                      : 'text-fg-dim hover:text-fg'
                   }`}
+                  aria-label="Search archive stories and galleries"
+                  data-cursor="SEARCH"
                 >
-                  <span>{link.name}</span>
-                  {/* Understated Gold Active Dot / Line */}
-                  <span
-                    className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#B89B72] transition-transform duration-300 origin-left ease-[cubic-bezier(0.23,1,0.32,1)] ${
-                      isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                  <Search
+                    size={16}
+                    className={`transition-colors duration-300 ${
+                      isOverHero
+                        ? 'text-fg-inverse/80 group-hover:text-fg-inverse'
+                        : 'text-fg-dim group-hover:text-fg'
                     }`}
                   />
-                </NavLink>
-              );
-            })}
-          </nav>
+                  <span
+                    className={`text-[11px] font-sans font-semibold tracking-[0.20em] uppercase transition-colors duration-300 hidden xl:inline ${
+                      isOverHero
+                        ? 'text-fg-inverse/70 group-hover:text-fg-inverse'
+                        : 'text-fg-faint group-hover:text-fg-dim'
+                    }`}
+                  >
+                    SEARCH
+                  </span>
+                </button>
+              </div>
 
-          {/* Mobile / Quick Drawer Menu Trigger */}
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="lg:hidden flex items-center gap-2.5 px-4 py-2 rounded-full border border-[#141413]/15 text-[#141413] hover:border-[#B89B72] hover:bg-[#141413]/5 transition-all text-[10px] font-sans font-semibold tracking-[0.2em] uppercase"
-              aria-label="Open navigation menu"
-              data-cursor="MENU"
+              {/* Centred Wordmark */}
+              <div className="col-span-6 flex justify-center text-center">
+                <Link
+                  href="/"
+                  className={`font-display text-[1.1rem] tracking-[0.30em] uppercase transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none select-none ${
+                    isOverHero
+                      ? 'text-fg-inverse hover:text-accent'
+                      : 'text-fg hover:text-accent-text'
+                  }`}
+                  data-cursor="HOME"
+                >
+                  {SITE_CONFIG.wordmark}
+                </Link>
+              </div>
+
+              {/* Far Right: Social Icons */}
+              <div
+                className={`col-span-3 flex items-center justify-end gap-4 transition-colors duration-300 ${
+                  isOverHero ? 'text-fg-inverse/80' : 'text-fg-dim'
+                }`}
+              >
+                <a
+                  href={SITE_CONFIG.social.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`p-1 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none ${
+                    isOverHero
+                      ? 'text-fg-inverse/80 hover:text-fg-inverse'
+                      : 'text-fg-dim hover:text-fg'
+                  }`}
+                  aria-label="Visit The Picture Square on Instagram"
+                  data-cursor="INSTAGRAM"
+                >
+                  <InstagramIcon size={16} />
+                </a>
+
+                <a
+                  href={SITE_CONFIG.social.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`p-1 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none ${
+                    isOverHero
+                      ? 'text-fg-inverse/80 hover:text-fg-inverse'
+                      : 'text-fg-dim hover:text-fg'
+                  }`}
+                  aria-label="Visit The Picture Square on YouTube"
+                  data-cursor="YOUTUBE"
+                >
+                  <YoutubeIcon size={16} />
+                </a>
+
+                <a
+                  href={SITE_CONFIG.social.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`p-1 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none ${
+                    isOverHero
+                      ? 'text-fg-inverse/80 hover:text-fg-inverse'
+                      : 'text-fg-dim hover:text-fg'
+                  }`}
+                  aria-label="Visit The Picture Square on Facebook"
+                  data-cursor="FACEBOOK"
+                >
+                  <FacebookIcon size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* ROW 2: Centred single row of uppercase utility links */}
+            <nav
+              aria-label="Primary Navigation"
+              className="flex items-center justify-center gap-6 xl:gap-8 text-[0.75rem] font-sans font-medium tracking-[0.20em] uppercase whitespace-nowrap"
             >
-              <span>MENU</span>
-              <Menu size={15} strokeWidth={1.5} className="text-[#B89B72]" />
-            </button>
+              {HEADER_NAV_LINKS.map((item) => {
+                const isActive =
+                  pathname === item.path ||
+                  (item.path !== '/' && pathname.startsWith(item.path));
+
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.path}
+                    className={`relative py-1 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none ${
+                      isOverHero
+                        ? isActive
+                          ? 'text-fg-inverse font-semibold'
+                          : 'text-fg-inverse/80 hover:text-fg-inverse'
+                        : isActive
+                        ? 'text-fg font-semibold'
+                        : 'text-fg-dim hover:text-fg'
+                    }`}
+                    data-cursor="NAV"
+                  >
+                    {item.name}
+                    {/* Active route indicator underline */}
+                    {isActive && (
+                      <span
+                        className="absolute -bottom-1 left-0 w-full h-[1px] bg-accent"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* ========================================================= */}
+          {/* MOBILE HEADER (< 1024px): Wordmark left, Search + Menu right */}
+          {/* ========================================================= */}
+          <div className="flex lg:hidden items-center justify-between">
+            {/* Wordmark Left */}
+            <Link
+              href="/"
+              className={`font-display text-lg tracking-[0.22em] uppercase transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none select-none ${
+                isOverHero
+                  ? 'text-fg-inverse hover:text-accent'
+                  : 'text-fg hover:text-accent-text'
+              }`}
+              data-cursor="HOME"
+            >
+              {SITE_CONFIG.wordmark}
+            </Link>
+
+            {/* Mobile Actions: Search Icon + Hamburger */}
+            <div className="flex items-center gap-2">
+              <Link
+                href="/search"
+                className={`p-2 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none ${
+                  isOverHero
+                    ? 'text-fg-inverse/80 hover:text-fg-inverse'
+                    : 'text-fg-dim hover:text-fg'
+                }`}
+                aria-label="Search stories and archives"
+                data-cursor="SEARCH"
+              >
+                <Search size={18} />
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(true)}
+                className={`p-2 transition-colors duration-300 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none cursor-pointer ${
+                  isOverHero
+                    ? 'text-fg-inverse hover:text-accent'
+                    : 'text-fg hover:text-accent-text'
+                }`}
+                aria-label="Open mobile navigation menu"
+                data-cursor="MENU"
+              >
+                <Menu size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -97,8 +241,16 @@ export const Navbar: React.FC = () => {
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
-        links={NAV_LINKS}
+        links={HEADER_NAV_LINKS}
+      />
+
+      {/* Full-Screen Desktop Search Overlay Modal */}
+      <SearchOverlayModal
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
       />
     </>
   );
 };
+
+export default Navbar;

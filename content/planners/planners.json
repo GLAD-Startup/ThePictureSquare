@@ -1,0 +1,66 @@
+{
+  "manualAdditions": [
+    {
+      "name": "Vrindavan Heritage Weddings",
+      "category": "PLANNERS",
+      "city": "Mathura & Vrindavan",
+      "url": "https://instagram.com/vrindavanweddings",
+      "instagram": "https://instagram.com/vrindavanweddings"
+    },
+    {
+      "name": "Oberoi Amarvilas",
+      "category": "VENUES",
+      "city": "Agra, Uttar Pradesh",
+      "url": "https://instagram.com/oberoiamarvilas"
+    },
+    {
+      "name": "Taj Lake Palace",
+      "category": "VENUES",
+      "city": "Udaipur, Rajasthan",
+      "url": "https://instagram.com/tajlakepalace"
+    },
+    {
+      "name": "ITC Mughal",
+      "category": "VENUES",
+      "city": "Agra, Uttar Pradesh",
+      "url": "https://instagram.com/itcmughal"
+    },
+    {
+      "name": "JW Marriott Jaipur Resort & Spa",
+      "category": "VENUES",
+      "city": "Jaipur, Rajasthan",
+      "url": "https://instagram.com/jwmarriottjaipur"
+    },
+    {
+      "name": "The Oberoi Rajvilas",
+      "category": "VENUES",
+      "city": "Jaipur, Rajasthan",
+      "url": "https://instagram.com/theoberoirajvilas"
+    },
+    {
+      "name": "Manish Malhotra",
+      "category": "OUTFITS",
+      "city": "Mumbai & New Delhi",
+      "url": "https://instagram.com/manishmalhotra05"
+    },
+    {
+      "name": "Anamika Khanna",
+      "category": "OUTFITS",
+      "city": "Kolkata & New Delhi",
+      "url": "https://instagram.com/anamikakhanna.in"
+    },
+    {
+      "name": "The Wedding Bartenders",
+      "category": "CATERING",
+      "city": "Mumbai & Destination",
+      "url": "https://instagram.com/theweddingbartenders"
+    },
+    {
+      "name": "Food Inc by Yum Yum Tree",
+      "category": "CATERING",
+      "city": "New Delhi, NCR",
+      "url": "https://instagram.com/foodincindia"
+    }
+  ],
+  "exclusions": []
+}

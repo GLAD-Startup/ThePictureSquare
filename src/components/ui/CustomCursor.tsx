@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -6,11 +8,24 @@ export const CustomCursor: React.FC = () => {
   const [cursorText, setCursorText] = useState('');
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    // Enable custom cursor class on body for desktop pointer devices
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+    // Check prefers-reduced-motion — do not mount
+    const mqlMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mqlMotion.matches) {
+      setReducedMotion(true);
+      return;
+    }
+
+    // Check pointer: fine — only mount on fine pointer devices
+    const mqlPointer = window.matchMedia('(pointer: fine)');
+    if (!mqlPointer.matches) {
+      return;
+    }
+
+    const motionHandler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mqlMotion.addEventListener('change', motionHandler);
 
     document.body.classList.add('has-custom-cursor');
 
@@ -18,12 +33,13 @@ export const CustomCursor: React.FC = () => {
       setPosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
 
-      // Check if target or parent has data-cursor attribute
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
       const cursorTarget = target.closest('[data-cursor]') as HTMLElement | null;
-      const interactiveTarget = target.closest('a, button, [role="button"], input, textarea') as HTMLElement | null;
+      const interactiveTarget = target.closest(
+        'a, button, [role="button"], input, textarea, select'
+      ) as HTMLElement | null;
 
       if (cursorTarget) {
         const text = cursorTarget.getAttribute('data-cursor') || '';
@@ -46,19 +62,20 @@ export const CustomCursor: React.FC = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      mqlMotion.removeEventListener('change', motionHandler);
       document.body.classList.remove('has-custom-cursor');
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [isVisible]);
 
-  if (!isVisible) return null;
+  if (reducedMotion || !isVisible) return null;
 
   return (
     <>
-      {/* Small Central Precision Dot */}
+      {/* Central Precision Dot */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-[#141413]"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-fg"
         style={{
           width: 6,
           height: 6,
@@ -74,18 +91,21 @@ export const CustomCursor: React.FC = () => {
         transition={{ type: 'spring', damping: 30, stiffness: 450, mass: 0.1 }}
       />
 
-      {/* Fluid Outer Ring & Context Tag */}
+      {/* Outer Contextual Ring */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9998] flex items-center justify-center rounded-full border border-[#B89B72]/60 bg-[#141413]/5 backdrop-blur-[2px]"
+        className="fixed top-0 left-0 pointer-events-none z-[9998] flex items-center justify-center rounded-full border border-accent/60 bg-bg-raised/85 backdrop-blur-[2px] shadow-md"
         animate={{
           x: position.x,
           y: position.y,
-          width: cursorText ? 84 : isHovered ? 52 : 36,
-          height: cursorText ? 84 : isHovered ? 52 : 36,
-          marginLeft: cursorText ? -42 : isHovered ? -26 : -18,
-          marginTop: cursorText ? -42 : isHovered ? -26 : -18,
-          backgroundColor: cursorText ? 'rgba(20, 20, 19, 0.88)' : 'rgba(20, 20, 19, 0.03)',
-          borderColor: cursorText ? 'rgba(184, 155, 114, 0.8)' : isHovered ? 'rgba(184, 155, 114, 0.7)' : 'rgba(184, 155, 114, 0.35)',
+          width: cursorText ? 92 : isHovered ? 52 : 36,
+          height: cursorText ? 92 : isHovered ? 52 : 36,
+          marginLeft: cursorText ? -46 : isHovered ? -26 : -18,
+          marginTop: cursorText ? -46 : isHovered ? -26 : -18,
+          borderColor: cursorText
+            ? 'rgba(184, 155, 114, 0.9)'
+            : isHovered
+            ? 'rgba(184, 155, 114, 0.7)'
+            : 'rgba(184, 155, 114, 0.35)',
         }}
         transition={{ type: 'spring', damping: 25, stiffness: 280, mass: 0.2 }}
       >
@@ -94,7 +114,7 @@ export const CustomCursor: React.FC = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="text-[10px] uppercase font-sans font-semibold tracking-[0.22em] text-[#F6F4EE]"
+            className="text-[13px] uppercase font-sans font-semibold tracking-[0.20em] text-fg text-center px-2"
           >
             {cursorText}
           </motion.span>
@@ -103,3 +123,5 @@ export const CustomCursor: React.FC = () => {
     </>
   );
 };
+
+export default CustomCursor;

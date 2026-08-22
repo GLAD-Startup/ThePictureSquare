@@ -1,0 +1,44 @@
+[
+  {
+    "id": "track-yamuna-twilight",
+    "title": "Acoustic Yamuna Twilight",
+    "artists": ["The Picture Square Sound Studio", "Braj Sitar Collective"],
+    "audioUrl": "/audio/yamuna-twilight.mp3",
+    "artwork": {
+      "src": "/images/sunset-ghats.jpg",
+      "width": 600,
+      "height": 600,
+      "alt": "Acoustic Yamuna Twilight Track Artwork"
+    },
+    "durationSec": 248,
+    "downloadable": false
+  },
+  {
+    "id": "track-vedic-dawn",
+    "title": "Vedic Chants at Dawn",
+    "artists": ["Mathura Temple Choirs"],
+    "audioUrl": "/audio/vedic-dawn.mp3",
+    "artwork": {
+      "src": "/images/ceremony-vows.jpg",
+      "width": 600,
+      "height": 600,
+      "alt": "Vedic Chants Track Artwork"
+    },
+    "durationSec": 195,
+    "downloadable": false
+  },
+  {
+    "id": "track-pichola-reflections",
+    "title": "Lake Pichola Reflections",
+    "artists": ["Rajasthan Ambient Ensemble"],
+    "audioUrl": "/audio/pichola-reflections.mp3",
+    "artwork": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 600,
+      "height": 600,
+      "alt": "Lake Pichola Reflections Track Artwork"
+    },
+    "durationSec": 310,
+    "downloadable": false
+  }
+]

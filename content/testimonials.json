@@ -1,0 +1,55 @@
+{
+  "rating": 4.9,
+  "userRatingCount": 33,
+  "placeId": "ChIJyVpA8B88DTkRuVFGYAEPYw8",
+  "googleCid": "0xf63f101f60651b9",
+  "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJyVpA8B88DTkRuVFGYAEPYw8",
+  "googleMapsUrl": "https://maps.google.com/?cid=0xf63f101f60651b9",
+  "reviews": [
+    {
+      "id": "seed-1",
+      "authorName": "Pawan Sharma",
+      "rating": 5,
+      "relativeTime": "7 months ago",
+      "text": "Picture Square Photo Studio is truly outstanding in videography. The video quality is cinematic, editing is flawless, and every moment is captured beautifully. The team is professional, cooperative, and understands exactly what the client wants.",
+      "isLocalGuide": false,
+      "source": "Google"
+    },
+    {
+      "id": "seed-2",
+      "authorName": "Avinash Kumar Singh",
+      "rating": 5,
+      "relativeTime": "2 years ago",
+      "text": "Great work by professional photographers. Complete pre wedding was done in a day and results were outstanding. Looking for working with them again in future.",
+      "isLocalGuide": true,
+      "source": "Google"
+    },
+    {
+      "id": "seed-3",
+      "authorName": "Chandan Chauhan",
+      "rating": 5,
+      "relativeTime": "3 years ago",
+      "text": "Best experience with the picture square photography. Very punctual and cooperative. Team behaviour so good.",
+      "isLocalGuide": false,
+      "source": "Google"
+    },
+    {
+      "id": "seed-4",
+      "authorName": "Ashish Kumar",
+      "rating": 5,
+      "relativeTime": "5 years ago",
+      "text": "Amazing work by Picture Square, had good experience in my cousin's wedding, professional and very cooperative team.",
+      "isLocalGuide": false,
+      "source": "Google"
+    },
+    {
+      "id": "seed-5",
+      "authorName": "Priya Gaur",
+      "rating": 5,
+      "relativeTime": "5 years ago",
+      "text": "The picture square's team work is so professional. I am very impressed because of their work quality and behaviour.",
+      "isLocalGuide": false,
+      "source": "Google"
+    }
+  ]
+}

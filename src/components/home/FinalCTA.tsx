@@ -1,128 +1,108 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { GoldNumber, GoldMeta } from '../ui/GoldAccent';
+import { Shell } from '@/components/layout/Shell';
+import { SectionHead } from '@/components/ui/SectionHead';
+import { TrustStrip } from '@/components/ui/TrustStrip';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { scrollReveal } from '@/lib/motion';
+import { SITE_CONFIG } from '@/lib/site-config';
+import { GooglePlaceReviewsData } from '@/lib/reviews';
 
-export const FinalCTA: React.FC = () => {
-  const easeOutEditorial = [0.23, 1, 0.32, 1] as const;
+interface FinalCTAProps {
+  trustData?: Partial<GooglePlaceReviewsData> & {
+    reviewCount?: number;
+  };
+}
 
+export const FinalCTA: React.FC<FinalCTAProps> = ({ trustData }) => {
   return (
-    <section className="relative w-full min-h-[85vh] py-28 sm:py-36 md:py-44 px-6 sm:px-10 lg:px-16 max-w-[1440px] mx-auto border-t border-[#141413]/10 flex flex-col justify-between overflow-hidden">
-      {/* Section Marker */}
-      <div className="relative z-10 flex items-center justify-between pb-8 border-b border-[#141413]/10">
-        <div className="flex items-center gap-3">
-          <GoldNumber number={9} />
-          <GoldMeta>CLOSING EXHIBITION INVITATION</GoldMeta>
-        </div>
-        <span className="text-meta text-[#6C6862]">
-          STUDIO RESERVATIONS
-        </span>
-      </div>
+    <section id="enquire" className="relative w-full py-24 sm:py-32 lg:py-40 space-y-16">
+      <Shell>
+        <div className="space-y-16">
+          {/* SectionHead Recurring Device */}
+          <SectionHead title="COMMISSION &amp; INQUIRIES" eyebrow="ENQUIRE" />
 
-      {/* Dramatic Closing Headline & Oversized Art-Directed CTA */}
-      <div className="relative z-10 my-auto py-12 space-y-16 max-w-5xl">
-        <div className="font-serif-editorial text-hero text-[#141413] tracking-tight leading-[0.88] select-none">
-          <div className="overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '100%', opacity: 0 }}
-              whileInView={{ y: '0%', opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: easeOutEditorial }}
-              className="block font-light"
-            >
-              LET'S MAKE
-            </motion.span>
-          </div>
-
-          <div className="overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '100%', opacity: 0 }}
-              whileInView={{ y: '0%', opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.15, ease: easeOutEditorial }}
-              className="block font-normal italic text-[#141413]/90"
-            >
-              SOMETHING
-            </motion.span>
-          </div>
-
-          <div className="overflow-hidden pb-1">
-            <motion.span
-              initial={{ y: '100%', opacity: 0 }}
-              whileInView={{ y: '0%', opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.3, ease: easeOutEditorial }}
-              className="block font-light"
-            >
-              WORTH
-            </motion.span>
-          </div>
-
-          <div className="overflow-hidden pb-2">
-            <motion.span
-              initial={{ y: '100%', opacity: 0 }}
-              whileInView={{ y: '0%', opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.45, ease: easeOutEditorial }}
-              className="block font-light text-[#141413]"
-            >
-              REMEMBERING.
-            </motion.span>
-          </div>
-        </div>
-
-        {/* Oversized Art-Directed CTA Interaction & Direct WhatsApp Access */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.0, delay: 0.6, ease: easeOutEditorial }}
-          className="flex flex-col sm:flex-row sm:items-center gap-8"
-        >
-          <Link
-            to="/contact"
-            className="group relative inline-flex items-center gap-6 py-4 px-2 focus:outline-none"
-            data-cursor="INQUIRE"
-          >
-            {/* Expanding Gold Circle Accent */}
-            <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-[#B89B72] bg-transparent flex items-center justify-center group-hover:bg-[#B89B72] group-hover:scale-110 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-sm">
-              <ArrowUpRight size={24} className="text-[#B89B72] group-hover:text-[#141413] transition-colors" />
-            </span>
-
-            {/* Text Link */}
-            <div className="flex flex-col text-left">
-              <span className="font-serif-editorial text-3xl sm:text-4xl lg:text-5xl font-light text-[#141413] tracking-wide group-hover:text-[#B89B72] transition-colors duration-300">
-                START YOUR STORY →
-              </span>
-              <span className="font-sans text-[11px] font-semibold tracking-[0.25em] text-[#6C6862] uppercase -mt-1">
-                INQUIRE FOR WEDDING & PRE-WEDDING DATES
-              </span>
+          {/* Dramatic Headline in Instrument Serif */}
+          <div className="py-4 space-y-10 max-w-5xl">
+            {/* Trust Strip Above Headline */}
+            <div className="text-left">
+              <TrustStrip
+                rating={trustData?.rating || 4.9}
+                userRatingCount={trustData?.userRatingCount ?? trustData?.reviewCount ?? 33}
+                googleMapsUrl={trustData?.googleMapsUrl || SITE_CONFIG.googleMapsUrl}
+              />
             </div>
 
-            {/* Hover Line Expansion */}
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#B89B72] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left ease-[cubic-bezier(0.23,1,0.32,1)]" />
-          </Link>
+            <motion.div
+              {...scrollReveal}
+              className="font-display text-hero text-fg tracking-tight leading-[0.90] select-none"
+            >
+              <span className="block font-normal">LET&apos;S MAKE</span>
+              <span className="block font-normal italic text-fg/90">SOMETHING</span>
+              <span className="block font-normal">WORTH</span>
+              <span className="block font-normal text-fg">REMEMBERING.</span>
+            </motion.div>
 
-          {/* Direct WhatsApp Action Link */}
-          <a
-            href="https://wa.me/919876543210"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full border border-[#141413]/20 font-sans text-xs font-semibold tracking-[0.22em] text-[#141413] hover:border-[#B89B72] hover:bg-[#141413] hover:text-[#F6F4EE] transition-all uppercase self-start sm:self-center"
-            data-cursor="WHATSAPP"
-          >
-            <MessageCircle size={15} className="text-[#B89B72]" />
-            <span>WHATSAPP DIRECT</span>
-          </a>
-        </motion.div>
-      </div>
+            {/* Action Links: BEGIN A CONVERSATION + WHATSAPP */}
+            <motion.div
+              {...scrollReveal}
+              className="flex flex-col sm:flex-row sm:items-center gap-8 pt-4"
+            >
+              {/* 1. BEGIN A CONVERSATION with Expanding Accent Circle */}
+              <Link
+                href="/contact"
+                className="group relative inline-flex items-center gap-5 py-3 rounded-sm focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none"
+                data-cursor="INQUIRE"
+              >
+                {/* Expanding Accent Circle */}
+                <span
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-accent bg-transparent flex items-center justify-center group-hover:bg-accent-text group-hover:border-accent-text group-hover:scale-105 transition-all duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-sm"
+                  aria-hidden="true"
+                >
+                  <ArrowUpRight size={22} className="text-accent-text group-hover:text-fg-inverse transition-colors" />
+                </span>
 
-      {/* Subdued Bottom Tag */}
-      <div className="relative z-10 pt-8 border-t border-[#141413]/10 flex items-center justify-between text-meta text-[10px] text-[#6C6862]">
-        <span>MATHURA · AGRA · WORLDWIDE</span>
-        <span>THE PICTURE SQUARE STUDIO</span>
-      </div>
+                {/* Text Link */}
+                <div className="flex flex-col text-left">
+                  <span className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal text-fg tracking-wide group-hover:text-accent-text transition-colors duration-300">
+                    BEGIN A CONVERSATION →
+                  </span>
+                  <span className="text-meta-sm text-fg-dim uppercase mt-0.5 font-medium">
+                    INQUIRE FOR WEDDING &amp; DESTINATION DATES
+                  </span>
+                </div>
+
+                {/* Hover Line Expansion */}
+                <span
+                  className="absolute bottom-0 left-0 w-full h-[1px] bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-400 origin-left ease-[cubic-bezier(0.23,1,0.32,1)]"
+                  aria-hidden="true"
+                />
+              </Link>
+
+              {/* 2. WHATSAPP Direct Action Link */}
+              <a
+                href={
+                  SITE_CONFIG.phoneE164
+                    ? `https://wa.me/${SITE_CONFIG.phoneE164.replace(/[^0-9]/g, '')}`
+                    : '/contact'
+                }
+                target={SITE_CONFIG.phoneE164 ? '_blank' : undefined}
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-rule font-sans text-meta text-fg hover:border-accent hover:text-accent-text transition-all uppercase self-start sm:self-center focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none shadow-sm"
+                data-cursor="WHATSAPP"
+              >
+                <MessageCircle size={16} className="text-accent-text" />
+                <span>WHATSAPP DIRECT</span>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </Shell>
     </section>
   );
 };
+
+export default FinalCTA;

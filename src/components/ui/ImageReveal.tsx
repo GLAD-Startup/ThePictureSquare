@@ -1,56 +1,88 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { ease } from '@/lib/motion';
 
 interface ImageRevealProps {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
   className?: string;
-  aspectRatio?: 'aspect-portrait' | 'aspect-landscape' | 'aspect-square' | 'aspect-[4/5]' | 'aspect-[16/9]';
+  aspectRatio?: string;
   caption?: string;
   category?: string;
   cursorText?: string;
+  priority?: boolean;
 }
 
 export const ImageReveal: React.FC<ImageRevealProps> = ({
   src,
   alt,
+  width = 1200,
+  height = 1500,
   className = '',
   aspectRatio = 'aspect-[4/5]',
   caption,
   category,
   cursorText = 'VIEW',
+  priority = false,
 }) => {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
   return (
-    <figure className={`group relative overflow-hidden bg-[#ECE8DF] ${className}`} data-cursor={cursorText}>
+    <figure
+      className={`group relative overflow-hidden bg-bg-sunken rounded-sm ${className}`}
+      data-cursor={cursorText}
+    >
       {/* Curtain Mask Overlay Reveal */}
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.0, ease: [0.23, 1, 0.32, 1] }}
-        className={`relative w-full ${aspectRatio} overflow-hidden`}
+        transition={
+          reducedMotion
+            ? { duration: 0.01 }
+            : { duration: 1.0, ease: ease.outEditorial }
+        }
+        className={`relative w-full ${aspectRatio} overflow-hidden rounded-sm bg-bg-sunken`}
       >
-        <motion.img
+        <Image
           src={src}
           alt={alt}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035]"
+          width={width}
+          height={height}
+          priority={priority}
+          className="h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] filter brightness-[0.98] contrast-[1.02]"
         />
 
-        {/* Understated Vignette Shadow */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141413]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        {/* 1px Inset Border & Inset Ring: keeps light/white photographs defined as objects */}
+        <div
+          className="absolute inset-0 pointer-events-none rounded-sm border border-rule ring-1 ring-inset ring-black/[0.04]"
+          aria-hidden="true"
+        />
       </motion.div>
 
-      {/* Optional Editorial Image Subtitle / Caption */}
+      {/* Editorial Image Subtitle / Caption */}
       {(caption || category) && (
-        <figcaption className="mt-3.5 flex items-center justify-between font-sans text-[#6C6862]">
+        <figcaption className="mt-3.5 flex items-center justify-between font-sans text-fg-dim">
           {category && (
-            <span className="text-meta text-[#B89B72] tracking-[0.22em]">
+            <span className="text-meta text-accent-text tracking-[0.20em] font-semibold">
               {category}
             </span>
           )}
           {caption && (
-            <span className="text-[12px] font-light italic font-serif-editorial text-[#141413]">
+            <span className="text-[13px] font-normal italic font-display text-fg">
               {caption}
             </span>
           )}
@@ -59,3 +91,5 @@ export const ImageReveal: React.FC<ImageRevealProps> = ({
     </figure>
   );
 };
+
+export default ImageReveal;

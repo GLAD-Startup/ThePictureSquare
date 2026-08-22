@@ -1,111 +1,46 @@
+'use client';
+
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { GoldNumber, GoldMeta } from '../ui/GoldAccent';
+import { scrollReveal } from '@/lib/motion';
+import { WEDDING_GALLERY, WeddingItem } from '@/lib/data';
 
-interface GalleryItem {
-  id: string;
-  number: string;
-  title: string;
-  category: string;
-  location: string;
-  aspect: string;
-  src: string;
-  alt: string;
-  span: string;
-}
-
-const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    id: 'bride-portrait',
-    number: '01',
-    title: 'THE ADORNED BRIDE',
-    category: 'WEDDINGS',
-    location: 'ROYAL PALACE · MATHURA',
-    aspect: 'aspect-[3/4]',
-    src: '/images/hero-wedding.jpg',
-    alt: 'Luxury Indian Bride Portrait in Traditional Lehenga',
-    span: 'lg:col-span-7',
-  },
-  {
-    id: 'ceremony-vows',
-    number: '02',
-    title: 'THE SACRED RITUAL',
-    category: 'WEDDINGS',
-    location: 'AMPHITHEATRE · AGRA',
-    aspect: 'aspect-[4/3]',
-    src: '/images/ceremony-vows.jpg',
-    alt: 'Sacred Indian Wedding Ceremony Ritual and Sacred Flame',
-    span: 'lg:col-span-5',
-  },
-  {
-    id: 'full-width-landscape',
-    number: '03',
-    title: 'GOLDEN HOUR SILENCE',
-    category: 'PRE-WEDDINGS',
-    location: 'YAMUNA GHATS · MATHURA',
-    aspect: 'aspect-[16/8]',
-    src: '/images/sunset-ghats.jpg',
-    alt: 'Panoramic Sunset Portrait at Mathura Ghats',
-    span: 'lg:col-span-12',
-  },
-  {
-    id: 'wedding-details',
-    number: '04',
-    title: 'HEIRLOOM & HEAVY GOLD',
-    category: 'PORTRAITS',
-    location: 'HERITAGE SUITE · MATHURA',
-    aspect: 'aspect-[4/5]',
-    src: '/images/jewelry-details.jpg',
-    alt: 'Fine-Art Bridal Jewelry and Handcrafted Embroidery Details',
-    span: 'lg:col-span-6',
-  },
-  {
-    id: 'dance-floor',
-    number: '05',
-    title: 'UNFILTERED JOY',
-    category: 'WEDDINGS',
-    location: 'COURTYARD · DELHI NCR',
-    aspect: 'aspect-[4/5]',
-    src: '/images/dance-celebration.jpg',
-    alt: 'Emotional Family Moment & Dance Floor Celebration',
-    span: 'lg:col-span-6',
-  },
-];
-
-const CATEGORIES = ['ALL', 'WEDDINGS', 'PRE-WEDDINGS', 'PORTRAITS'];
+const CATEGORIES = ['ALL', 'PORTRAITS', 'CEREMONIES', 'CANDID', 'CELEBRATIONS', 'TRADITIONAL'] as const;
 
 export const EditorialGallery: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('ALL');
-  const easeOutEditorial = [0.23, 1, 0.32, 1] as const;
+  const [activeFilter, setActiveFilter] = useState<string>('ALL');
 
-  const filteredItems = activeFilter === 'ALL'
-    ? GALLERY_ITEMS
-    : GALLERY_ITEMS.filter((item) => item.category === activeFilter);
+  const filteredItems =
+    activeFilter === 'ALL'
+      ? WEDDING_GALLERY
+      : WEDDING_GALLERY.filter((item) => item.category === activeFilter);
 
   return (
-    <section className="relative w-full py-16 sm:py-24 lg:py-28 px-6 sm:px-10 lg:px-16 max-w-[1440px] mx-auto border-t border-[#141413]/10">
+    <section className="relative w-full py-16 sm:py-24 lg:py-28 px-6 sm:px-10 lg:px-16 max-w-[1440px] mx-auto border-t border-rule">
       {/* Exhibition Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-[#141413]/10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-rule">
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <GoldNumber number={2} />
             <GoldMeta>PHOTOGRAPHY EXHIBITION</GoldMeta>
           </div>
-          <h2 className="font-serif-editorial text-4xl sm:text-5xl lg:text-6xl text-[#141413] font-light">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-fg font-normal">
             CURATED STORIES
           </h2>
         </div>
 
         {/* Editorial Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-4 font-sans">
+        <div className="flex flex-wrap items-center gap-3 font-sans">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 text-[10px] font-semibold tracking-[0.22em] uppercase rounded-full transition-all duration-300 ${
+              className={`px-4 py-2 text-[13px] font-semibold tracking-[0.20em] uppercase rounded-full transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent-text focus:outline-none cursor-pointer ${
                 activeFilter === cat
-                  ? 'bg-[#141413] text-[#F6F4EE] shadow-sm'
-                  : 'text-[#6C6862] hover:text-[#141413] border border-[#141413]/15'
+                  ? 'bg-fg text-fg-inverse shadow-sm'
+                  : 'text-fg-dim hover:text-fg border border-rule hover:border-accent'
               }`}
             >
               {cat}
@@ -114,16 +49,10 @@ export const EditorialGallery: React.FC = () => {
         </div>
       </div>
 
-      {/* ------------------------------------------------------------- */}
-      {/* EXPANSIVE EXHIBITION GRID SEQUENCE                            */}
-      {/* ------------------------------------------------------------- */}
+      {/* Exhibition Grid */}
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {filteredItems.map((item) => (
-          <GalleryCard
-            key={item.id}
-            item={item}
-            easeOut={easeOutEditorial}
-          />
+          <GalleryCard key={item.id} item={item} />
         ))}
       </div>
     </section>
@@ -131,62 +60,57 @@ export const EditorialGallery: React.FC = () => {
 };
 
 interface GalleryCardProps {
-  item: GalleryItem;
-  easeOut: readonly [number, number, number, number];
+  item: WeddingItem;
 }
 
-const GalleryCard: React.FC<GalleryCardProps> = ({ item, easeOut }) => {
+const GalleryCard: React.FC<GalleryCardProps> = ({ item }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.9, ease: easeOut }}
+      {...scrollReveal}
       className={`group relative ${item.span} flex flex-col space-y-4`}
-      data-cursor="VIEW STORY →"
+      data-cursor="PORTFOLIO"
     >
-      {/* Image Container */}
-      <div className={`relative w-full ${item.aspect} overflow-hidden rounded-sm bg-[#ECE8DF] border border-[#141413]/10 shadow-[0_15px_40px_rgba(20,20,19,0.04)]`}>
-        <img
+      {/* Image Container with Inset Border & Subtle Ring */}
+      <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-auto overflow-hidden rounded-sm bg-bg-sunken border border-rule shadow-[0_10px_30px_rgba(20,20,19,0.04)]">
+        <Image
           src={item.src}
           alt={item.alt}
-          loading="lazy"
-          className="w-full h-full object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.035] filter brightness-[0.98] contrast-[1.02]"
+          width={item.width}
+          height={item.height}
+          className="w-full h-full object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02] filter brightness-[0.98] contrast-[1.02]"
         />
 
-        {/* Understated Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#141413]/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        {/* 1px Inset Border & Ring */}
+        <div
+          className="absolute inset-0 pointer-events-none rounded-sm border border-rule ring-1 ring-inset ring-black/[0.04]"
+          aria-hidden="true"
+        />
 
-        {/* Number Badge Top Left */}
-        <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-[#141413]/80 backdrop-blur-md text-[#F6F4EE] border border-white/10 rounded-full">
-          <span className="font-sans text-[10px] font-semibold tracking-[0.25em] text-[#B89B72]">
+        {/* Number Badge */}
+        <div className="absolute top-4 left-4 z-10 px-3 py-1 bg-bg-raised/90 backdrop-blur-md text-fg border border-rule rounded-full">
+          <span className="font-sans text-[13px] font-semibold tracking-[0.20em] text-accent-text">
             {item.number}
-          </span>
-        </div>
-
-        {/* Hover View Story Tag */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <span className="px-5 py-2.5 bg-[#141413]/90 backdrop-blur-md text-[#F6F4EE] font-sans text-[10px] font-semibold tracking-[0.25em] uppercase rounded-full border border-[#B89B72]/40 shadow-lg">
-            VIEW STORY →
           </span>
         </div>
       </div>
 
       {/* Editorial Metadata Below Image */}
-      <div className="flex items-baseline justify-between pt-1 font-sans border-b border-[#141413]/5 pb-3">
-        <div className="space-y-0.5">
-          <span className="text-[10px] font-semibold tracking-[0.22em] text-[#B89B72] uppercase block">
+      <div className="flex items-baseline justify-between pt-1 font-sans border-b border-rule pb-3">
+        <div className="space-y-1">
+          <span className="text-[13px] font-semibold tracking-[0.20em] text-accent-text uppercase block">
             {item.category}
           </span>
-          <h3 className="font-serif-editorial text-xl text-[#141413] font-normal group-hover:text-[#B89B72] transition-colors duration-300">
+          <h3 className="font-display text-2xl text-fg font-normal group-hover:text-accent-text transition-colors duration-300">
             {item.title}
           </h3>
         </div>
 
-        <span className="text-[10px] font-medium tracking-[0.2em] text-[#6C6862] uppercase">
+        <span className="text-[13px] font-medium tracking-[0.18em] text-fg-dim uppercase">
           {item.location}
         </span>
       </div>
     </motion.div>
   );
 };
+
+export default EditorialGallery;

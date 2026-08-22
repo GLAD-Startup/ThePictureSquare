@@ -1,0 +1,144 @@
+[
+  {
+    "id": "film-instacut-ananya",
+    "kind": "instacut",
+    "couple": "Ananya & Rohan",
+    "location": "Jaipur, Rajasthan",
+    "runtime": "0:58",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1080,
+      "height": 1920,
+      "alt": "Ananya & Rohan 9:16 Vertical Reel Poster"
+    },
+    "storySlug": "ananya-rohan"
+  },
+  {
+    "id": "film-instacut-priya",
+    "kind": "instacut",
+    "couple": "Priya & Karan",
+    "location": "Agra, Uttar Pradesh",
+    "runtime": "0:45",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/ceremony-vows.jpg",
+      "width": 1080,
+      "height": 1920,
+      "alt": "Priya & Karan 9:16 Vertical Reel Poster"
+    },
+    "storySlug": "priya-karan"
+  },
+  {
+    "id": "film-instacut-kavya",
+    "kind": "instacut",
+    "couple": "Kavya & Dev",
+    "location": "Jodhpur, Rajasthan",
+    "runtime": "0:52",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/dance-celebration.jpg",
+      "width": 1080,
+      "height": 1920,
+      "alt": "Kavya & Dev 9:16 Vertical Reel Poster"
+    },
+    "storySlug": "kavya-dev"
+  },
+  {
+    "id": "film-instacut-meera",
+    "kind": "instacut",
+    "couple": "Meera & Aditya",
+    "location": "Udaipur, Rajasthan",
+    "runtime": "0:59",
+    "provider": "vimeo",
+    "videoId": "123456789",
+    "poster": {
+      "src": "/images/sunset-ghats.jpg",
+      "width": 1080,
+      "height": 1920,
+      "alt": "Meera & Aditya 9:16 Vertical Reel Poster"
+    },
+    "storySlug": "meera-aditya"
+  },
+  {
+    "id": "film-trailer-ananya",
+    "kind": "trailer",
+    "couple": "Ananya & Rohan",
+    "location": "Jaipur, Rajasthan",
+    "runtime": "4:12",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/hero-wedding.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "Ananya & Rohan Palace Trailer Poster"
+    },
+    "storySlug": "ananya-rohan"
+  },
+  {
+    "id": "film-trailer-priya",
+    "kind": "trailer",
+    "couple": "Priya & Karan",
+    "location": "Agra & Mathura",
+    "runtime": "3:48",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/ceremony-vows.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "Priya & Karan Sacred Vows Trailer Poster"
+    },
+    "storySlug": "priya-karan"
+  },
+  {
+    "id": "film-trailer-meera",
+    "kind": "trailer",
+    "couple": "Meera & Aditya",
+    "location": "Udaipur, Rajasthan",
+    "runtime": "4:30",
+    "provider": "vimeo",
+    "videoId": "123456789",
+    "poster": {
+      "src": "/images/sunset-ghats.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "Meera & Aditya Lake Palace Trailer Poster"
+    },
+    "storySlug": "meera-aditya"
+  },
+  {
+    "id": "film-compilation-braj",
+    "kind": "compilation",
+    "couple": "Braj & Rajasthan Chronicles",
+    "location": "Mathura, Agra & Jaipur",
+    "runtime": "14:20",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/mathura-heritage.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "Braj & Rajasthan 4K Showreel Mastercut"
+    }
+  },
+  {
+    "id": "film-compilation-monograph",
+    "kind": "compilation",
+    "couple": "The Wedding Monograph Series",
+    "location": "Destination Anthology",
+    "runtime": "18:45",
+    "provider": "youtube",
+    "videoId": "dQw4w9WgXcQ",
+    "poster": {
+      "src": "/images/jewelry-details.jpg",
+      "width": 1600,
+      "height": 900,
+      "alt": "The Wedding Monograph Series 4K Cinema Anthology"
+    }
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "src": "/images/ceremony-vows.jpg",
+    "width": 1600,
+    "height": 2400,
+    "alt": "The Picture Square — ceremony vows",
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoLABAABUB8JQAAS7rG3/dKqWAA/uOEsPEjRrIUftIJFsg+5fM0fohpdoq1Ee4JPpCSQbqjt7BkJDJwKlTdl5SXapgOTBJTKAAAAA=="
+  },
+  {
+    "src": "/images/dance-celebration.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "The Picture Square — dance celebration",
+    "blurDataURL": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAsABUB8JQAAUlD87XbOAAD+tgMrkk++/JDrFtpKt7SQjLAuzf7k9A8AAA=="
+  },
+  {
+    "src": "/images/hero-wedding.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "The Picture Square — hero wedding",
+    "blurDataURL": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAADwAQCdASoQAAsABUB8JQBdgB4bjjh6LAAA/uNANMPPMxQ8XIu8dUcgSYrmF6060nj9AAAA"
+  },
+  {
+    "src": "/images/jewelry-details.jpg",
+    "width": 1600,
+    "height": 1068,
+    "alt": "The Picture Square — jewelry details",
+    "blurDataURL": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAsABUB8JZQC7AERHLfagH2AAP7IAdJL8Ksk1r6TTBuy/2j3WRsrMag5w2jqFLAN3alumEs1MySs5aaeAA=="
+  },
+  {
+    "src": "/images/mathura-heritage.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "The Picture Square — mathura heritage",
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAsABUB8JaACdH8AFe21EFVhMAD+Mpn/GmN3bggEf/VrTftYBeD7XoQcQHg8BM1eWqPg3v1+YNnbuGJwlu9XYVX6Bc2YAAA="
+  },
+  {
+    "src": "/images/sunset-ghats.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "The Picture Square — sunset ghats",
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAsABUB8JYgCsAD7gM0Gc5YgAAD+W4OzZQj9MwK/HiwuA0DfxW0qg9cWYlG+zXfAxsqMmOz5xU/YEgzrdS4qIMQ2E3dwAAA="
+  }
+]
